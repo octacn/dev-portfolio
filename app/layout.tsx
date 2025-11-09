@@ -2,21 +2,12 @@ import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
-import { Space_Grotesk, Inter } from "next/font/google";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import { META_THEME_COLORS } from "@/hooks/meta-colors";
 import { ThemeProvider } from "@/components/theme-provider";
-// import { Fugaz_One } from "next/font/google"
-
-
-// const font = Fugaz_One({
-//   weight: "400",
-//   subsets: ["latin"],
-//   display: "swap",
-//   preload: true,
-// })
-
-// import { Toaster } from "@/registry/ui/sonner";
-// import MaxWidthWrapper from "@/components/max-width-wrapper";
+import MaxWidthWrapper from "@/components/max-width-wrapper";
+import { Space_Grotesk, Inter, Fugaz_One as Cursive } from "next/font/google";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,6 +17,12 @@ const inter = Inter({
 const mono = Space_Grotesk({
   variable: "--font-mono",
   subsets: ["latin"],
+});
+
+const cursive = Cursive({
+  variable: "--font-cursive",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +60,8 @@ export default function RootLayout({
           "text-foreground overscroll-none antialiased",
           "font-inter tracking-wide font-normal",
           mono.variable,
-          inter.variable
+          inter.variable,
+          cursive.variable
         )}
         cz-shortcut-listen="true"
       >
@@ -73,13 +71,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* 
-          <MaxWidthWrapper> */}
-          {children}
-          {/* 
-        </MaxWidthWrapper>
-          <Toaster />
-          */}
+          <MaxWidthWrapper>
+            <SiteHeader />
+            {children}
+            <SiteFooter />
+          </MaxWidthWrapper>
         </ThemeProvider>
       </body>
     </html>

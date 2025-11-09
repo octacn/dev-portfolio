@@ -84,6 +84,7 @@
 @theme inline {
   --font-mono: var(--font-mono);
   --font-inter: var(--font-inter);
+  --font-cursive: var(--font-cursive);
 
   --color-app: oklch(75% 0.183 55.934);
   --color-app-secondary: oklch(70.5% 0.213 47.604);
