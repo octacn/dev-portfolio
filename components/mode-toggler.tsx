@@ -1,29 +1,30 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { useMetaColor } from "@/hooks/meta-colors";
+import * as React from "react"
+import { useTheme } from "next-themes"
+
+import { useMetaColor } from "@/hooks/meta-colors"
+import { Button } from "@/components/ui/button"
 
 export default function ModeToggler() {
-  const { setMetaColor, metaColor } = useMetaColor();
-  const { setTheme, resolvedTheme } = useTheme();
+  const { setMetaColor, metaColor } = useMetaColor()
+  const { setTheme, resolvedTheme } = useTheme()
 
   React.useEffect(() => {
-    setMetaColor(metaColor);
-  }, [metaColor, setMetaColor]);
+    setMetaColor(metaColor)
+  }, [metaColor, setMetaColor])
 
   const switchTheme = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  };
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+  }
 
   const toggleTheme = React.useCallback(() => {
     if (!document.startViewTransition) {
-      switchTheme();
-      return;
+      switchTheme()
+      return
     }
-    document.startViewTransition(switchTheme);
-  }, [resolvedTheme, setTheme]);
+    document.startViewTransition(switchTheme)
+  }, [resolvedTheme, setTheme])
 
   return (
     <Button
@@ -53,5 +54,5 @@ export default function ModeToggler() {
       </svg>
       <span className="sr-only">Mode Toggle</span>
     </Button>
-  );
+  )
 }
