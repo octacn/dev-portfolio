@@ -1,45 +1,45 @@
-import "@/styles/globals.css"
+import "@/styles/globals.css";
 
-import type { Metadata } from "next"
-import { Fugaz_One as Cursive, Inter, Space_Grotesk } from "next/font/google"
-import ReactLenis from "lenis/react"
-import { ViewTransitions } from "next-view-transitions"
+import type { Metadata } from "next";
+import { Fugaz_One as Cursive, Hanken_Grotesk, Inter } from "next/font/google";
+import ReactLenis from "lenis/react";
+import { ViewTransitions } from "next-view-transitions";
 
-import { cn } from "@/lib/utils"
-import { META_THEME_COLORS } from "@/hooks/meta-colors"
-import MaxWidthWrapper from "@/components/max-width-wrapper"
-import SiteFooter from "@/components/site-footer"
-import SiteHeader from "@/components/site-header"
-import { ThemeProvider } from "@/components/theme-provider"
+import { cn } from "@/lib/utils";
+import { META_THEME_COLORS } from "@/hooks/meta-colors";
+import MaxWidthWrapper from "@/components/max-width-wrapper";
+import SiteFooter from "@/components/site-footer";
+import SiteHeader from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-})
+});
 
-const mono = Space_Grotesk({
+const mono = Hanken_Grotesk({
   variable: "--font-mono",
   subsets: ["latin"],
-})
+});
 
 const cursive = Cursive({
   variable: "--font-cursive",
   subsets: ["latin"],
   weight: ["400"],
-})
+});
 
 export const metadata: Metadata = {
   title: "dev portfolio",
   description:
     "This is portfolio website for a developer. It is clean and modern design.",
-}
+};
 
 // export const metadata = getMetadata("/");
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <ViewTransitions>
@@ -86,5 +86,5 @@ export default function RootLayout({
         </body>
       </html>
     </ViewTransitions>
-  )
+  );
 }

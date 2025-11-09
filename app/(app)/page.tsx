@@ -11,7 +11,7 @@ export default function Home() {
       </h1>
       <ModeToggler />
 
-      <Button className="mt-10">
+      <Button className="mt-10 font-mono">
         <Link href={"/projects"}>Projects</Link>
       </Button>
     </div>
