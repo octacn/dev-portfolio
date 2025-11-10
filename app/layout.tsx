@@ -7,7 +7,10 @@ import { ViewTransitions } from "next-view-transitions";
 
 import { cn } from "@/lib/utils";
 import { META_THEME_COLORS } from "@/hooks/meta-colors";
-import MaxWidthWrapper from "@/components/max-width-wrapper";
+import {
+  MaxWidthWrapper,
+  MaxWidthWrapperContainer,
+} from "@/components/max-width-wrapper";
 import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -67,7 +70,7 @@ export default function RootLayout({
             "font-inter tracking-wide font-normal",
             mono.variable,
             inter.variable,
-            cursive.variable
+            cursive.variable,
           )}
           cz-shortcut-listen="true"
         >
@@ -78,9 +81,9 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ReactLenis root>
-              <SiteHeader />
               <MaxWidthWrapper>
-                {children}
+                <SiteHeader />
+                <MaxWidthWrapperContainer>{children}</MaxWidthWrapperContainer>
                 <SiteFooter />
               </MaxWidthWrapper>
             </ReactLenis>

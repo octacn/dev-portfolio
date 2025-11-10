@@ -2,7 +2,7 @@ import { siteConfig } from "@/lib/config";
 
 export default function SiteFooter() {
   return (
-    <footer className="my-10 text-sm text-center">
+    <footer className="text-sm text-center">
       <div className="bg-surface rounded-xl border p-6">
         <div className="text-app mb-2">$ start thoughts.md</div>
         <div className="space-y-4">

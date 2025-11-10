@@ -17,7 +17,7 @@ export default function HighlightBox({
         "inline-flex items-center justify-center gap-1",
         "border-2 border-dashed border-foreground/20 rounded-md",
         "[&_svg:not([class*='size-'])]:size-5 [&_svg]:pointer-events-none",
-        className
+        className,
       )}
       {...props}
     >

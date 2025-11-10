@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { usePathname } from "next/navigation"
-import { Link } from "next-view-transitions"
+import * as React from "react";
+import { usePathname } from "next/navigation";
+import { Link } from "next-view-transitions";
 
-import { siteConfig } from "@/lib/config"
-import { cn } from "@/lib/utils"
-import { Separator } from "@/components/ui/separator"
-import { Icons } from "@/components/icons"
-import ModeToggler from "@/components/mode-toggler"
+import { siteConfig } from "@/lib/config";
+import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
+import { Icons } from "@/components/icons";
+import ModeToggler from "@/components/mode-toggler";
 
 export default function SiteHeader() {
-  const [scrolled, setScrolled] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY
+      const offset = window.scrollY;
       if (offset > 50) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [scrolled])
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrolled]);
 
   return (
     <header className="sticky w-full z-50 left-0 right-0 top-5">
@@ -33,7 +33,7 @@ export default function SiteHeader() {
           "bg-foreground/3 backdrop-blur-lg z-50 rounded-full border",
           "transition-all duration-500 ease-in-out",
           "flex items-center justify-between px-4 sm:px-8 py-2 md:py-3 mx-4 sm:mx-auto",
-          scrolled ? "max-w-2xl" : "max-w-3xl"
+          scrolled ? "max-w-2xl" : "max-w-3xl",
         )}
       >
         <Link href="/" className="hover:cursor-default select-none">
@@ -49,7 +49,7 @@ export default function SiteHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
 function MainNav({
@@ -57,9 +57,9 @@ function MainNav({
   className,
   ...props
 }: React.ComponentProps<"nav"> & {
-  items: { href: string; label: string }[]
+  items: { href: string; label: string }[];
 }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <nav className={cn("items-center flex gap-3", className)} {...props}>
@@ -69,12 +69,12 @@ function MainNav({
           href={item.href}
           className={cn(
             "hover:cursor-default hover:text-app text-sm",
-            pathname === item.href && "text-app-secondary"
+            pathname === item.href && "text-app-secondary",
           )}
         >
           {item.label}
         </Link>
       ))}
     </nav>
-  )
+  );
 }

@@ -9,7 +9,7 @@ export default function HeroSection() {
         <span className="text-4xl tracking-wider font-cursive underline underline-offset-6 decoration-2">
           hi, i&apos;m Sahilkumardev
         </span>
-        <span className="text-2xl font-cursive text-muted-foreground ml-2">
+        <span className="text-xl font-cursive text-muted-foreground ml-2">
           Full Stack Developer
         </span>
       </h1>

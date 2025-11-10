@@ -6,5 +6,5 @@ export default function Box({
   children,
   className,
 }: React.ComponentProps<"div">) {
-  return <div className={cn("mt-16", className)}>{children}</div>;
+  return <div className={cn("", className)}>{children}</div>;
 }
