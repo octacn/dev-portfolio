@@ -86,7 +86,9 @@ export default function RootLayout({
               <CatCursor />
               <MaxWidthWrapper>
                 <SiteHeader />
-                <MaxWidthWrapperContainer>{children}</MaxWidthWrapperContainer>
+                <MaxWidthWrapperContainer>
+                  {children}
+                </MaxWidthWrapperContainer>
                 <SiteFooter />
               </MaxWidthWrapper>
             </ReactLenis>

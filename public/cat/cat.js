@@ -203,8 +203,7 @@
 
     if (
       idleTime > 10 &&
-      Math.floor(Math.random() * 200) == 0 &&
-      animation == null
+      Math.floor(Math.random() * 200) == 0
     ) {
       let availableAnimations = ["sleeping", "scratchSelf"];
       if (catPosX < 32) {

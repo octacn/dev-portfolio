@@ -5,7 +5,7 @@ function MaxWidthWrapper({ children }: { children: React.ReactNode }) {
 }
 
 function MaxWidthWrapperContainer({ children }: { children: React.ReactNode }) {
-  return <div className="max-w-2xl mx-auto my-14">{children}</div>;
+  return <div className="my-14">{children}</div>;
 }
 
 export { MaxWidthWrapper, MaxWidthWrapperContainer };

@@ -49,12 +49,11 @@ function GithubGraph() {
       ) : (
         <ActivityCalendar
           data={contributions}
-          blockMargin={3}
-          blockSize={10}
-          fontSize={10}
+          blockMargin={4}
+          blockSize={11}
+          fontSize={12}
           colorScheme={theme === "dark" ? "dark" : "light"}
           theme={githubConfigMode}
-          hideTotalCount
         />
       )}
     </section>

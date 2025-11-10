@@ -1,9 +1,11 @@
+import { Icons } from "@/components/icons";
+
 export const siteConfig = {
   name: "sahilkumardev",
   url: "https://sahilkumardev.com",
   developer: "Sahil Kumar Dev",
   githubUsername: "sahilkumardev",
-  links: {
+  social: {
     twitter: "https://twitter.com/sahilkumardev",
     github: "https://github.com/sahilkumardev",
     linkedin: "https://linkedin.com/in/sahil-kumar-dev",
@@ -42,3 +44,52 @@ export const githubConfigMode = {
     "rgb(33, 110, 57)", // Very dark green
   ],
 };
+
+export const skills = [
+  {
+    name: "Typescript",
+    href: "https://www.typescriptlang.org/",
+    component: Icons.typescript,
+  },
+  {
+    name: "React",
+    href: "https://react.dev/",
+    component: Icons.react,
+  },
+  {
+    name: "Next.js",
+    href: "https://nextjs.org/",
+    component: Icons.nextjs,
+  },
+  {
+    name: "Pnpm",
+    href: "https://pnpm.io/",
+    component: Icons.pnpm,
+  },
+  {
+    name: "MongoDB",
+    href: "https://www.mongodb.com/",
+    component: Icons.mongodb,
+  },
+];
+
+export const skillComponents = {
+  TypeScript: Icons.typescript,
+  ReactIcon: Icons.react,
+  MongoDB: Icons.mongodb,
+  NextJs: Icons.nextjs,
+  Pnpm: Icons.pnpm,
+};
+
+export const socialItems = [
+  {
+    href: siteConfig.social.twitter,
+    label: "twitter",
+    icon: Icons.nextjs,
+  },
+  {
+    href: siteConfig.social.github,
+    label: "github",
+    icon: Icons.typescript,
+  },
+];
