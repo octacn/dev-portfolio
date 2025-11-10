@@ -6,14 +6,14 @@ import ActivityCalendar from "react-activity-calendar";
 import { useGithubData } from "@/hooks/github-data";
 import { Loader } from "@/components/loading";
 import { cn } from "@/lib/utils";
-import IDETracker from "@/hooks/ide-tracker";
+// import IDETracker from "@/hooks/ide-tracker";
 
 export default function GithubActivity() {
   const { totalContributions } = useGithubData();
 
   return (
     <div>
-      <section className="flex items-center justify-between">
+      <section className="flex items-center justify-between mb-5">
         <div>
           <h2 className="text-2xl font-bold text-foreground">
             Github Contributions
@@ -23,14 +23,10 @@ export default function GithubActivity() {
           </p>
         </div>
 
-{/* Add a feature that show that the real time tracking of ide (vs code) of my work and working page name and how much time spent and if vs code is close then show offline status if offline show how much time spend yestarday */}
+        {/* <IDETracker /> */}
 
-
-
+        <h2>Ide Tracker</h2>
       </section>
-
-      {/* IDE / session tracker (local browser-based fallback). See hook for notes. */}
-      <IDETracker />
 
       <GithubGraph />
     </div>
