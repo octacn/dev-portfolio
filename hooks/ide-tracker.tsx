@@ -39,7 +39,8 @@ function formatDuration(seconds: number) {
 export function useIdeTracker() {
   const pathname = usePathname();
   // current page is derived from document.title or pathname - derived value (no state)
-  const currentPage = typeof document !== "undefined" ? document.title || pathname || "/" : "/";
+  const currentPage =
+    typeof document !== "undefined" ? document.title || pathname || "/" : "/";
   const [online, setOnline] = useState<boolean>(true);
   const [todaysSeconds, setTodaysSeconds] = useState<number>(() => {
     if (typeof window === "undefined") return 0;
@@ -61,10 +62,11 @@ export function useIdeTracker() {
   useEffect(() => {
     // initialize
     if (typeof window === "undefined") return;
-  sessionsRef.current = loadSessions();
+    sessionsRef.current = loadSessions();
 
     const updateActive = () => {
-      const isActive = document.visibilityState === "visible" && document.hasFocus();
+      const isActive =
+        document.visibilityState === "visible" && document.hasFocus();
       activeRef.current = isActive;
       setOnline(isActive);
     };
@@ -122,17 +124,24 @@ export function useIdeTracker() {
 }
 
 export default function IDETracker() {
-  const { online, currentPage, todays, yesterdays, todaysSeconds } = useIdeTracker();
+  const { online, currentPage, todays, yesterdays, todaysSeconds } =
+    useIdeTracker();
 
   return (
     <aside className="mt-6 w-full max-w-md rounded-lg border p-4 bg-background">
-      <h3 className="text-lg font-medium text-foreground">IDE / Session Tracker</h3>
-      <p className="text-sm text-muted-foreground mt-1">Tracks time while this page is active in your browser</p>
+      <h3 className="text-lg font-medium text-foreground">
+        IDE / Session Tracker
+      </h3>
+      <p className="text-sm text-muted-foreground mt-1">
+        Tracks time while this page is active in your browser
+      </p>
 
       <div className="mt-3 flex items-center justify-between">
         <div>
           <div className="text-xs text-muted-foreground">Status</div>
-          <div className={`text-sm font-semibold ${online ? "text-green-500" : "text-amber-500"}`}>
+          <div
+            className={`text-sm font-semibold ${online ? "text-green-500" : "text-amber-500"}`}
+          >
             {online ? "Online (active)" : "Offline / idle"}
           </div>
         </div>
@@ -147,7 +156,9 @@ export default function IDETracker() {
         <div className="rounded-md border p-2">
           <div className="text-xs text-muted-foreground">Today</div>
           <div className="text-sm font-semibold">{todays}</div>
-          <div className="text-xs text-muted-foreground">({todaysSeconds}s)</div>
+          <div className="text-xs text-muted-foreground">
+            ({todaysSeconds}s)
+          </div>
         </div>
 
         <div className="rounded-md border p-2">
@@ -157,10 +168,11 @@ export default function IDETracker() {
       </div>
 
       <p className="mt-3 text-xs text-muted-foreground">
-        Note: This tracker records time while this browser tab is visible and focused. To track your
-        actual VS Code activity across the editor you would need a small VS Code extension that
-        forwards activity to this site or an API. This local tracker is a fallback for showing
-        session totals and offline/yesterday information.
+        Note: This tracker records time while this browser tab is visible and
+        focused. To track your actual VS Code activity across the editor you
+        would need a small VS Code extension that forwards activity to this site
+        or an API. This local tracker is a fallback for showing session totals
+        and offline/yesterday information.
       </p>
     </aside>
   );

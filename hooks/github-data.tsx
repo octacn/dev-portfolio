@@ -22,7 +22,7 @@ type GitHubContributionResponse = {
 
 export function useGithubData(username?: string) {
   const [contributions, setContributions] = React.useState<ContributionItem[]>(
-    []
+    [],
   );
   const [totalContributions, setTotalContributions] = React.useState<number>(0);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
@@ -38,7 +38,7 @@ export function useGithubData(username?: string) {
       try {
         const user = username ?? siteConfig.githubUsername;
         const response = await fetch(
-          `https://github-contributions-api.deno.dev/${user}.json`
+          `https://github-contributions-api.deno.dev/${user}.json`,
         );
         const data: { contributions?: unknown[] } = await response.json();
 
@@ -64,7 +64,7 @@ export function useGithubData(username?: string) {
                 item !== null &&
                 "date" in item &&
                 "contributionCount" in item &&
-                "contributionLevel" in item
+                "contributionLevel" in item,
             )
             .map((item: GitHubContributionResponse) => ({
               date: String(item.date),
@@ -78,8 +78,8 @@ export function useGithubData(username?: string) {
           const latestContributionDate = validContributions.length
             ? new Date(
                 Math.max(
-                  ...validContributions.map((c) => new Date(c.date).getTime())
-                )
+                  ...validContributions.map((c) => new Date(c.date).getTime()),
+                ),
               )
             : now;
 
@@ -100,7 +100,7 @@ export function useGithubData(username?: string) {
 
           const total = filteredContributions.reduce(
             (sum, item) => sum + item.count,
-            0
+            0,
           );
           setTotalContributions(total);
 

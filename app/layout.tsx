@@ -63,7 +63,7 @@ export default function RootLayout({
             `,
             }}
           />
- 
+
           <meta name="theme-color" content={META_THEME_COLORS.light} />
         </head>
         <body
@@ -72,7 +72,7 @@ export default function RootLayout({
             "font-inter tracking-wide font-normal",
             mono.variable,
             inter.variable,
-            cursive.variable
+            cursive.variable,
           )}
           cz-shortcut-listen="true"
         >
@@ -86,9 +86,7 @@ export default function RootLayout({
               <CatCursor />
               <MaxWidthWrapper>
                 <SiteHeader />
-                <MaxWidthWrapperContainer>
-                  {children}
-                </MaxWidthWrapperContainer>
+                <MaxWidthWrapperContainer>{children}</MaxWidthWrapperContainer>
                 <SiteFooter />
               </MaxWidthWrapper>
             </ReactLenis>

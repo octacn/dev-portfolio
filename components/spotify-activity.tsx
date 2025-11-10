@@ -1,8 +1,5 @@
-import React from 'react'
-
+import React from "react";
 
 export default function SpotifyActivity() {
-  return (
-    <div>SpotifyActivity</div>
-  )
+  return <div>SpotifyActivity</div>;
 }

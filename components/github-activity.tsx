@@ -15,9 +15,7 @@ export default function GithubActivity() {
     <div>
       <section className="flex items-center justify-between mb-5">
         <div>
-          <h2 className="text-2xl font-bold text-foreground">
-            Github Contributions
-          </h2>
+          <h2 className="text-xl tracking-wider">Github Contributions</h2>
           <p className="text-sm text-muted-foreground">
             <b>Total</b> {totalContributions} Contributions
           </p>
@@ -41,7 +39,7 @@ function GithubGraph() {
     <section
       className={cn(
         "rounded-lg border border-dashed overflow-hidden flex items-center justify-center",
-        isLoading ? "h-44" : "p-5"
+        isLoading ? "h-44" : "p-5",
       )}
     >
       {isLoading ? (
