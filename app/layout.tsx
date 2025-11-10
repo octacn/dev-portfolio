@@ -79,8 +79,10 @@ export default function RootLayout({
           >
             <ReactLenis root>
               <SiteHeader />
-              <MaxWidthWrapper>{children}</MaxWidthWrapper>
-              <SiteFooter />
+              <MaxWidthWrapper>
+                {children}
+                <SiteFooter />
+              </MaxWidthWrapper>
             </ReactLenis>
           </ThemeProvider>
         </body>

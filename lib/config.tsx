@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "octacn/ui",
   url: "https://ui.octacn.com",
+  developer: "Sahil Kumar Dev",
   links: {
     twitter: "https://twitter.com/sahilkumardev",
     github: "https://github.com/octacn/ui",
