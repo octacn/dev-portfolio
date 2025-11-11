@@ -48,7 +48,7 @@ function ProjectViewerProvider({
   );
 }
 
-function ProjectContent({ children }: { children: React.ReactNode }) {
+function ProjectContent() {
   const { item } = useProjectViewer();
 
   return (
@@ -163,144 +163,14 @@ function ProjectContent({ children }: { children: React.ReactNode }) {
           </ul>
         </div>
       </div>
-
-      <div className="prose prose-neutral max-w-none dark:prose-invert">
-        <div>{children}</div>
-      </div>
     </article>
   );
 }
 
-function RelatedProject() {
-  const { item } = useProjectViewer();
-  return (
-    <div>
-      {/* <div className="space-y-6">
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold">Related Projects</h2>
-              <div className="grid gap-6 md:grid-cols-2">
-                {relatedProjects.map((project) => (
-                ))}
-              </div>
-            </div>
-          </div> */}
-
-      <div className="group rounded-lg border bg-card p-6 transition-colors hover:bg-muted/50">
-        <Link href={`/projects/`}>
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <h3 className="text-lg font-semibold group-hover:text-primary">
-                {item.name}
-              </h3>
-              <div className="text-xs">
-                <div
-                // className={`inline-block rounded px-2 py-1 text-xs font-medium ${
-                //   project.frontmatter.status === "completed"
-                //     ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
-                //     : project.frontmatter.status === "in-progress"
-                //     ? "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400"
-                //     : "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400"
-                // }`}
-                >
-                  {/* {project.frontmatter.status.charAt(0).toUpperCase() +
-                    project.frontmatter.status.slice(1)} */}
-                </div>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground line-clamp-2">
-              {/* {project.frontmatter.description} */}
-            </p>
-            <div className="flex flex-wrap gap-1">
-              {/* {project.frontmatter.technologies.slice(0, 3).map((tech) => (
-                <span key={tech} className="rounded bg-muted px-2 py-1 text-xs">
-                  {tech}
-                </span>
-              ))} */}
-              {/* {project.frontmatter.technologies.length > 3 && (
-                <span className="rounded bg-muted px-2 py-1 text-xs">
-                  +{project.frontmatter.technologies.length - 3}
-                </span>
-              )} */}
-            </div>
-          </div>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-function ProjectNavigation() {
-  return (
-    <div className="grid gap-4 md:grid-cols-2">
-      <Button
-        variant="outline"
-        asChild
-        className="group h-auto w-full justify-start p-4 text-left"
-      >
-        <Link href={`/projects`}>
-          <div className="flex items-center gap-3">
-            <Icons.arrowLeft className="size-4 transition-transform group-hover:-translate-x-1" />
-            <div>
-              <div className="text-xs text-muted-foreground">
-                Previous Project
-              </div>
-              <div className="font-medium">app To name</div>
-            </div>
-          </div>
-        </Link>
-      </Button>
-
-      <Button
-        variant="outline"
-        asChild
-        className="group h-auto w-full justify-end p-4 text-right"
-      >
-        <Link href={`/projects/`}>
-          <div className="flex items-center gap-3">
-            <div>
-              <div className="text-xs text-muted-foreground">Next Project</div>
-              <div className="font-medium">case cobra case</div>
-            </div>
-            <Icons.arrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-          </div>
-        </Link>
-      </Button>
-    </div>
-  );
-}
-
-function ProjectBackButton() {
-  return (
-    <div className="flex items-center-safe justify-center-safe">
-      <Button variant="outline">
-        <Link href="/projects" className="flex items-center space-x-2">
-          <Icons.arrowLeft className="size-4" />
-          <span>Back to Projects</span>
-        </Link>
-      </Button>
-    </div>
-  );
-}
-
-function ProjectViewer({
-  item,
-  children,
-  ...props
-}: Pick<ProjectViewerContext, "item"> & {
-  children: React.ReactNode;
-}) {
+function ProjectViewer({ item, ...props }: Pick<ProjectViewerContext, "item">) {
   return (
     <ProjectViewerProvider item={item} {...props}>
-      <ProjectContent>{children}</ProjectContent>
-      <Separator />
-
-      <ProjectNavigation />
-      <Separator />
-      <div className="grid grid-cols-2 gap-2">
-        <RelatedProject />
-        <RelatedProject />
-      </div>
-      <ProjectBackButton />
+      <ProjectContent />
     </ProjectViewerProvider>
   );
 }

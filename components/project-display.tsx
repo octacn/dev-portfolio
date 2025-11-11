@@ -12,7 +12,7 @@ export default async function ProjectDisplay({ name }: { name: string }) {
     return null;
   }
 
-  return <ProjectViewer item={item}>mdx components</ProjectViewer>;
+  return <ProjectViewer item={item} />;
 }
 
 const getCachedProjectItem = React.cache(async (name: string) => {
