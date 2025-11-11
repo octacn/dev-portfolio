@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import { rimraf } from "rimraf";
 import path from "path";
 
-import { project } from "../content/item/index";
+import { project } from "../content/projects/item/index";
 
 async function buildRegistryIndex() {
   let index = `/* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -24,14 +24,14 @@ export const Index: Record<string, any> = {`;
   console.log(`#️⃣  ${Object.keys(project.items).length} items found`);
 
   // Write style index.
-  rimraf.sync(path.join(process.cwd(), "content/__index__.tsx"));
-  await fs.writeFile(path.join(process.cwd(), "content/__index__.tsx"), index);
+  rimraf.sync(path.join(process.cwd(), "content/projects/__index__.tsx"));
+  await fs.writeFile(path.join(process.cwd(), "content/projects/__index__.tsx"), index);
 }
 
 try {
-  console.log("🗂️ Building content/__index__.tsx...");
+  console.log("🗂️ Building content/projects/__index__.tsx...");
   await buildRegistryIndex();
-  console.log("🥳 Completed content/__index__.tsx...");
+  console.log("🥳 Completed content/projects/__index__.tsx...");
 
   console.log("🥳 Completed all process check the changes...");
 } catch (error) {

@@ -1,6 +1,6 @@
 import { projectItemSchema } from "@/schema/item";
 
-import { Index } from "@/content/__index__";
+import { Index } from "@/content/projects/__index__";
 
 export async function getProjectItem(name: string) {
   const item = Index[name];

@@ -10,7 +10,7 @@ export default async function Page({
   return (
     <div>
       <h1>{name}</h1>
-      <ProjectDisplay name={"dev-portfolio"} />;
+      <ProjectDisplay name={"dev-portfolio"} />
     </div>
   );
 }
