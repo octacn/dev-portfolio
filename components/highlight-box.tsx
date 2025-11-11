@@ -18,7 +18,7 @@ function HighlightBox({
         "bg-foreground/10 text-sm text-foreground font-bold",
         "border-2 border-dashed border-foreground/20 rounded-md",
         "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none",
-        className,
+        className
       )}
       {...props}
     >
@@ -30,20 +30,44 @@ function HighlightBox({
 function HighlightSocialBox({
   children,
   className,
+  icon = false,
   href,
-}: React.ComponentProps<typeof Link>) {
+  ...props
+}: React.ComponentProps<typeof Link> & { icon?: boolean }) {
   return (
     <Link
       href={href}
       className={cn(
-        "border bg-code p-1.5 rounded-md btn-inner-shadow",
         "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none",
-        className,
+        "transition-colors text-nowrap inline-flex items-center justify-center gap-1.5",
+        icon
+          ? "[&_svg:not([class*='size-'])]:size-6"
+          : "border bg-code p-1.5 rounded-md btn-inner-shadow",
+        className
       )}
+      {...props}
     >
       {children}
     </Link>
   );
 }
 
-export { HighlightBox, HighlightSocialBox };
+function IconBox({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
+  return (
+    <div
+      className={cn(
+        "[&_svg:not([class*='size-'])]:size-6.5 [&_svg]:pointer-events-none hover:scale-110 transition-transform duration-200",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+export { HighlightBox, HighlightSocialBox, IconBox };

@@ -6,5 +6,5 @@ export default function Container({
   children,
   className,
 }: React.ComponentProps<"div">) {
-  return <div className={cn("my-16", className)}>{children}</div>;
+  return <div className={cn("my-4", className)}>{children}</div>;
 }
