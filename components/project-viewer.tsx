@@ -2,11 +2,14 @@
 
 import * as React from "react";
 import { ProjectItemSchema } from "@/schema/item";
-import { Button } from "./ui/button";
-import { Link } from "next-view-transitions";
-import { Icons } from "./icons";
-import { Separator } from "./ui/separator";
+import { Icons } from "@/components/icons";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import {
+  HighlightSocialBox,
+  IconHighlightBox,
+  IconBox,
+} from "@/components/highlight-box";
 
 type ProjectViewerContext = {
   item: ProjectItemSchema;
@@ -51,119 +54,206 @@ function ProjectViewerProvider({
 function ProjectContent() {
   const { item } = useProjectViewer();
 
+  const socialLinks = [
+    { href: "#", aria: "live-preview", icon: <Icons.preview /> },
+    { href: "#", aria: "view-github", icon: <Icons.github /> },
+  ];
+
   return (
     <article className="mx-auto max-w-4xl">
-      <header>
-        <div className="relative aspect-video overflow-hidden rounded-lg">
-          <Image
-            src={"/notesbuddy.webp"}
-            alt={"Project Image"}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </header>
+      <section className="relative aspect-video overflow-hidden rounded-xl border border-border/30">
+        <Image
+          src={"/notesbuddy.webp"}
+          alt={"Project Image"}
+          fill
+          className="object-cover"
+          priority
+        />
+      </section>
 
-      <div className="flex flex-wrap items-center gap-3">
-        <span className="text-sm">React js</span>
-        <span className="text-xs">Nextjs</span>
-        <span className="text-xs">+ 3 more</span>
+      <div className="flex items-center-safe justify-between my-6">
+        <div className="flex flex-wrap items-center gap-3">
+          <Badge
+            variant={"secondary"}
+            hideSelection
+            className="flex items-center gap-2 border-green-500/30 border bg-green-500/20 text-green-400"
+          >
+            <span className="relative inline-flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+            </span>
+            In Building
+          </Badge>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Badge key={index} hideSelection variant={"secondary"}>
+              React js {index + 1}
+            </Badge>
+          ))}
+          <Badge hideSelection variant={"secondary"}>
+            3+ More
+          </Badge>
+        </div>
+        <div className="flex items-center gap-2">
+          {socialLinks.map((s, i) => (
+            <HighlightSocialBox
+              icon
+              key={i}
+              href={s.href}
+              target="_blank"
+              aria-label={s.aria}
+              className="text-muted-foreground hover:text-app"
+            >
+              {s.icon}
+            </HighlightSocialBox>
+          ))}
+        </div>
       </div>
-      <h1 className="text-4xl font-bold leading-tight lg:text-5xl">
-        {item.name}
+
+      <h1 className="text-4xl font-semibold tracking-wider capitalize font-mono">
+        {item.name.replace(/-/g, " ")}
       </h1>
-      <p className="text-xl text-muted-foreground">{item.content}</p>
 
-      <div className="grid gap-4 rounded-lg border bg-muted/20 p-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <h5 className="text-sm font-semibold text-muted-foreground">
-            Timeline
-          </h5>
-          <p className="text-sm">1 month</p>
-        </div>
-        <div>
-          <h5 className="text-sm font-semibold text-muted-foreground">Role</h5>
-          <p className="text-sm">Fullstack</p>
-        </div>
+      <p className="text-muted-foreground mt-2 tracking-wider leading-relaxed">
+        {item.content}
+      </p>
 
-        <div>
-          <h5 className="text-sm font-semibold text-muted-foreground">Team</h5>
-          <p className="text-sm">Solo</p>
-        </div>
-        <div>
-          <h5 className="text-sm font-semibold text-muted-foreground">
-            Status
-          </h5>
-          <span className="text-xs">Ongoing</span>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap gap-3">
-        <Button asChild>
-          <Link
-            href={"live"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2"
-          >
-            <Icons.preview />
-            Live Demo
-          </Link>
-        </Button>
-
-        <Button variant="outline" asChild>
-          <Link
-            href={"github"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2"
-          >
-            <Icons.github className="size-4" />
-            Source Code
-          </Link>
-        </Button>
-      </div>
-
-      <Separator />
-
-      <div className="mb-8">
-        <div className="rounded-lg border bg-muted/20 p-4">
-          <h3 className="mb-3 text-lg font-semibold">Technology Stack</h3>
-          <div className="flex flex-wrap gap-2">
-            <div className="inline-flex items-center gap-2 rounded-full bg-muted/50 px-3 py-1.5 text-sm font-medium">
-              <span>nextjs, react js, tailwindcss</span>
-            </div>
+      <div className="grid gap-4 rounded-lg border bg-surface p-4 sm:grid-cols-2 lg:grid-cols-4 my-8">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <div key={index}>
+            <h5 className="font-semibold font-mono tracking-wider mb-0.5 text-foreground/90 ">
+              Heading
+            </h5>
+            <p className="text-muted-foreground  tracking-wider text-sm">
+              Content hai bhai
+            </p>
           </div>
-        </div>
+        ))}
       </div>
 
-      <div className="mb-8 grid gap-6 md:grid-cols-2">
-        <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-950/20">
-          <h3 className="mb-3 text-lg font-semibold text-yellow-800 dark:text-yellow-200">
-            Key Challenges
-          </h3>
-          <ul className="space-y-2">
-            <li className="flex items-start gap-2 text-sm text-yellow-700 dark:text-yellow-300">
-              <span className="mt-1 block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
-              hello kon hai bhai jesa hai koi nai aaya
-            </li>
-          </ul>
-        </div>
+      <div className="grid gap-8 md:grid-cols-2">
+        {Array.from({ length: 2 }).map((_, index) => (
+          <div
+            key={index}
+            className="rounded-lg border border-app/50 bg-app/30 p-4 font-mono"
+          >
+            <h3 className="text-yellow-500 font-semibold mb-2 text-xl">
+              Key Challenges/Learning
+            </h3>
+            <ul className="space-y-0.5">
+              {Array.from({ length: 3 }).map((_, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-center gap-x-2 text-yellow-500"
+                >
+                  <span className="block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
+                  Hello kon hai bhai jesa hai koi nai aaya
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
 
-        <div className="rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-950/20">
-          <h3 className="mb-3 text-lg font-semibold text-green-800 dark:text-green-200">
-            Key Learnings
-          </h3>
-          <ul className="space-y-2">
-            <li className="flex items-start gap-2 text-sm text-green-700 dark:text-green-300">
-              <span className="mt-1 block size-1.5 rounded-full bg-green-500 dark:bg-green-400" />
-              hello kon hai bhai jesa hai koi nai aaya
-            </li>
-          </ul>
+      <div className="rounded-lg border bg-surface p-4 my-8">
+        <h4 className="font-mono text-lg font-medium tracking-wide mb-2.5">
+          Tech Stack
+        </h4>
+        <div className="flex flex-wrap gap-4">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <IconHighlightBox key={index}>
+              <Icons.react />
+              React js
+            </IconHighlightBox>
+          ))}
         </div>
       </div>
     </article>
+  );
+}
+
+function ProjectCardViewer({
+  item,
+  hideImage,
+  ...props
+}: Pick<ProjectViewerContext, "item"> & { hideImage?: boolean }) {
+  const socialLinks = [
+    { href: "#", aria: "live-preview", icon: <Icons.preview /> },
+    { href: "#", aria: "view-github", icon: <Icons.github /> },
+  ];
+
+  const techs = [Icons.react, Icons.nextjs, Icons.mongodb];
+
+  return (
+    <ProjectViewerProvider item={item} {...props}>
+      <section className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-black/10 p-0 border shadow-none rounded-2xl bg-surface group">
+        <React.Activity mode={hideImage ? "hidden" : "visible"}>
+          <div className="p-0 border-b overflow-hidden">
+            <Image
+              className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+              src={"/notesbuddy.webp"}
+              alt={"Notes Buddy"}
+              loading="lazy"
+              width={1920}
+              height={1080}
+            />
+          </div>
+        </React.Activity>
+
+        <div className="p-6 pt-5">
+          <div className="flex items-center justify-between gap-4">
+            <h1 className="text-xl font-medium line-clamp-1 truncate">
+              Notes Buddy project hai bhai
+            </h1>
+            <div className="flex items-center gap-2">
+              {socialLinks.map((s, i) => (
+                <HighlightSocialBox
+                  icon
+                  key={i}
+                  href={s.href}
+                  target="_blank"
+                  aria-label={s.aria}
+                  className="text-muted-foreground hover:text-app"
+                >
+                  {s.icon}
+                </HighlightSocialBox>
+              ))}
+            </div>
+          </div>
+          <p className="text-muted-foreground text-sm line-clamp-3 mt-2">
+            Notes Buddy is a lightweight note-taking app for capturing ideas,
+            organizing them with tags and folders, and quickly finding content
+            via fast full-text search and Markdown support.
+          </p>
+          <h4 className="font-medium text-foreground/80 font-mono mt-2 mb-0.5 text-sm">
+            Technologies
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {techs.map((TechIcon, i) => (
+              <IconBox key={i}>
+                <TechIcon />
+              </IconBox>
+            ))}
+          </div>
+
+          <div className="flex justify-between items-center mt-4 text-green-400">
+            <div className="flex items-center gap-2 rounded-md px-2 py-1 text-xs border-green-500/30 border bg-green-500/20">
+              <span className="relative inline-flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+              </span>
+              All Systems Operational
+            </div>
+            <HighlightSocialBox
+              icon
+              href={"#"}
+              className="text-sm hover:underline underline-offset-4 [&_svg:not([class*='size-'])]:size-4 text-foreground/80 hover:text-foreground"
+            >
+              View Details <Icons.arrowRight />
+            </HighlightSocialBox>
+          </div>
+        </div>
+      </section>
+    </ProjectViewerProvider>
   );
 }
 
@@ -175,4 +265,4 @@ function ProjectViewer({ item, ...props }: Pick<ProjectViewerContext, "item">) {
   );
 }
 
-export { ProjectViewer };
+export { ProjectViewer, ProjectCardViewer };

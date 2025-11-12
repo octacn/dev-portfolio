@@ -5,7 +5,7 @@ export const Loader = ({ className }: React.ComponentProps<"div">) => {
   return (
     <div
       className={cn(
-        "inline-flex cursor-default items-center justify-center w-full font-inter text-muted-foreground h-full absolute inset-0",
+        "inline-flex cursor-default items-center justify-center w-full font-inter text-muted-foreground h-20 absolute inset-0",
         className,
       )}
     >

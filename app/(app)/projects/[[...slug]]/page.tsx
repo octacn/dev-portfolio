@@ -5,10 +5,12 @@ import { findNeighbour } from "fumadocs-core/page-tree";
 import { source } from "@/lib/source";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
-import ProjectDisplay from "@/components/project-display";
+import {
+  ProjectCardDisplay,
+  ProjectDisplay,
+} from "@/components/project-display";
 import ProjectCopyButton from "@/components/project-copy-button";
 import { absoluteUrl } from "@/lib/utils";
-import { ProjectCard } from "@/components/card";
 
 export const revalidate = false;
 export const dynamic = "force-static";
@@ -19,12 +21,30 @@ export default async function Page({
 }: {
   params: Promise<{ slug?: string[] }>;
 }) {
-  // const name = (await params).slug?.join("/") || "";
-  const page = source.getPage((await params).slug);
+  const slug = (await params).slug;
 
-  // console.log("====================================");
-  // console.log(name);
-  // console.log("====================================");
+  const page = source.getPage(slug);
+  const name = slug?.join("/") || "";
+
+  const pages = source.getPageTree().children;
+  const names = pages.map((doc) => doc.name as string);
+
+  const getRandomNames = (nameArray: string[], count: number = 2): string[] => {
+    if (nameArray.length <= count) return nameArray;
+
+    const shuffled = [...nameArray].sort(() => Math.random() - 0.5);
+    const removeCurrentPage = shuffled.filter((name) => name !== name);
+
+    return removeCurrentPage.slice(0, count);
+  };
+
+  const randomNames = getRandomNames(names, 2);
+
+  // const randomPages = randomNames
+  //   .map((name) => pages.find((page) => page.name === name))
+  //   .filter(Boolean);
+
+  console.log("random name: ", randomNames);
 
   if (!page) {
     notFound();
@@ -36,7 +56,8 @@ export default async function Page({
   const neighbours = findNeighbour(source.pageTree, page.url);
 
   return (
-    <div className="">
+    <section>
+      {/* <div>{randomizeName}</div> */}
       <div className="flex items-center justify-between mb-4">
         <Link href="/projects">
           <Button variant="secondary" size="sm">
@@ -76,11 +97,31 @@ export default async function Page({
         </div>
       </div>
 
-      <ProjectDisplay name="dev-portfolio" />
+      {name ? (
+        <ProjectDisplay name={name} />
+      ) : (
+        <div className="inline-flex cursor-default items-center justify-center w-full font-inter text-muted-foreground/30 h-48 bg-surface/10 rounded-2xl mb-8">
+          <svg
+            className="animate-spin mr-2 size-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 12a9 9 0 0 0 9 9a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9" />
+            <path d="M17 12a5 5 0 1 0 -5 5" className="opacity-75" />
+          </svg>
+          Loading...
+        </div>
+      )}
 
-      <MDX components={mdxComponents} />
-
-      <div className="flex justify-between mt-96">
+      <div>
+        <MDX components={mdxComponents} />
+      </div>
+      <div className="flex justify-between mt-8">
         {neighbours.previous && (
           <Button variant="outline" asChild>
             <Link href={neighbours.previous.url}>
@@ -99,10 +140,12 @@ export default async function Page({
         )}
       </div>
 
-      <div className="grid grid-cols-2 gap-8 my-10">
-        <ProjectCard hideImage />
-        <ProjectCard hideImage />
+      <div className="grid grid-cols-2 gap-8 my-8">
+        ello
+        {randomNames.map((projectName) => (
+          <ProjectCardDisplay key={projectName} name={projectName} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 }

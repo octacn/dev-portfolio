@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ProjectViewer } from "./project-viewer";
+import { ProjectViewer, ProjectCardViewer } from "./project-viewer";
 import { getProjectItem } from "@/lib/content";
 
-export default async function ProjectDisplay({ name }: { name: string }) {
+export async function ProjectDisplay({ name }: { name: string }) {
   const item = await getCachedProjectItem(name);
 
   if (!item?.content) {
@@ -10,6 +10,22 @@ export default async function ProjectDisplay({ name }: { name: string }) {
   }
 
   return <ProjectViewer item={item} />;
+}
+
+export async function ProjectCardDisplay({
+  name,
+  hideImage,
+}: {
+  name: string;
+  hideImage?: boolean;
+}) {
+  const item = await getCachedProjectItem(name);
+
+  if (!item?.content) {
+    return null;
+  }
+
+  return <ProjectCardViewer item={item} hideImage={hideImage} />;
 }
 
 const getCachedProjectItem = React.cache(async (name: string) => {
