@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Icons } from "@/components/icons";
 import { HighlightSocialBox, IconBox } from "@/components/highlight-box";
+import { Activity } from "react";
 
-function ProjectCard() {
+function ProjectCard({ hideImage = false }: { hideImage?: boolean }) {
   const socialLinks = [
     { href: "#", aria: "live-preview", icon: <Icons.preview /> },
     { href: "#", aria: "view-github", icon: <Icons.github /> },
@@ -12,16 +13,18 @@ function ProjectCard() {
 
   return (
     <section className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-black/10 p-0 border shadow-none rounded-2xl bg-surface group">
-      <div className="p-0 border-b overflow-hidden">
-        <Image
-          className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
-          src={"/notesbuddy.webp"}
-          alt={"Notes Buddy"}
-          loading="lazy"
-          width={1920}
-          height={1080}
-        />
-      </div>
+      <Activity mode={hideImage ? "hidden" : "visible"}>
+        <div className="p-0 border-b overflow-hidden">
+          <Image
+            className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
+            src={"/notesbuddy.webp"}
+            alt={"Notes Buddy"}
+            loading="lazy"
+            width={1920}
+            height={1080}
+          />
+        </div>
+      </Activity>
 
       <div className="p-6 pt-5">
         <div className="flex items-center justify-between gap-4">

@@ -8,6 +8,7 @@ import { Icons } from "@/components/icons";
 import ProjectDisplay from "@/components/project-display";
 import ProjectCopyButton from "@/components/project-copy-button";
 import { absoluteUrl } from "@/lib/utils";
+import { ProjectCard } from "@/components/card";
 
 export const revalidate = false;
 export const dynamic = "force-static";
@@ -35,7 +36,7 @@ export default async function Page({
   const neighbours = findNeighbour(source.pageTree, page.url);
 
   return (
-    <div>
+    <div className="">
       <div className="flex items-center justify-between mb-4">
         <Link href="/projects">
           <Button variant="secondary" size="sm">
@@ -44,32 +45,34 @@ export default async function Page({
           </Button>
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <ProjectCopyButton
             page={"await replaceComponentSource(await doc.getText())"}
             url={absoluteUrl(page.url)}
           />
-          {neighbours.previous && (
-            <Button
-              variant="secondary"
-              size="icon-sm"
-              className="ml-auto"
-              asChild
-            >
-              <Link href={neighbours.previous.url}>
-                <Icons.arrowLeft />
-                <span className="sr-only">Previous</span>
-              </Link>
-            </Button>
-          )}
-          {neighbours.next && (
-            <Button variant="secondary" size="icon-sm" asChild>
-              <Link href={neighbours.next.url}>
-                <span className="sr-only">Next</span>
-                <Icons.arrowRight />
-              </Link>
-            </Button>
-          )}
+          <div className="space-x-2">
+            {neighbours.previous && (
+              <Button
+                variant="secondary"
+                size="icon-sm"
+                className="ml-auto"
+                asChild
+              >
+                <Link href={neighbours.previous.url}>
+                  <Icons.arrowLeft />
+                  <span className="sr-only">Previous</span>
+                </Link>
+              </Button>
+            )}
+            {neighbours.next && (
+              <Button variant="secondary" size="icon-sm" asChild>
+                <Link href={neighbours.next.url}>
+                  <span className="sr-only">Next</span>
+                  <Icons.arrowRight />
+                </Link>
+              </Button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -77,50 +80,28 @@ export default async function Page({
 
       <MDX components={mdxComponents} />
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="flex justify-between mt-96">
         {neighbours.previous && (
-          <Button
-            variant="outline"
-            asChild
-            className="group h-auto w-full justify-start p-4 text-left"
-          >
+          <Button variant="outline" asChild>
             <Link href={neighbours.previous.url}>
-              <div className="flex items-center gap-3">
-                <Icons.arrowLeft className="size-4 transition-transform group-hover:-translate-x-1" />
-                <div>
-                  <div className="text-xs text-muted-foreground">
-                    Previous Project
-                  </div>
-                  <div className="font-medium">{neighbours.previous.name}</div>
-                </div>
-              </div>
+              <Icons.arrowLeft />
+              {neighbours.previous.name}
             </Link>
           </Button>
         )}
         {neighbours.next && (
-          <Button
-            variant="outline"
-            asChild
-            className="group h-auto w-full justify-end p-4 text-right"
-          >
+          <Button variant="outline" asChild>
             <Link href={neighbours.next.url}>
-              <div className="flex items-center gap-3">
-                <div>
-                  <div className="text-xs text-muted-foreground">
-                    Next Project
-                  </div>
-                  <div className="font-medium">{neighbours.next.name}</div>
-                </div>
-                <Icons.arrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </div>
+              {neighbours.next.name}
+              <Icons.arrowRight />
             </Link>
           </Button>
         )}
       </div>
 
-      <div className="grid grid-cols-2 gap-2">
-        <div>Related Project one</div>
-        <div>Related Project two</div>
+      <div className="grid grid-cols-2 gap-8 my-10">
+        <ProjectCard hideImage />
+        <ProjectCard hideImage />
       </div>
     </div>
   );
