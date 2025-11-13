@@ -14,7 +14,7 @@ import {
 import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
-import CatCursor from "@/components/cat-cursor";
+// import CatCursor from "@/components/cat-cursor";
 
 const inter = Inter({
   variable: "--font-inter",

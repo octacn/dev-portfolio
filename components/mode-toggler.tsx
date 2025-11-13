@@ -14,9 +14,9 @@ export default function ModeToggler() {
     setMetaColor(metaColor);
   }, [metaColor, setMetaColor]);
 
-  const switchTheme = () => {
+  const switchTheme = React.useCallback(() => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  };
+  }, [resolvedTheme, setTheme]);
 
   const toggleTheme = React.useCallback(() => {
     if (!document.startViewTransition) {
@@ -24,7 +24,7 @@ export default function ModeToggler() {
       return;
     }
     document.startViewTransition(switchTheme);
-  }, [resolvedTheme, setTheme]);
+  }, [switchTheme]);
 
   return (
     <Button
