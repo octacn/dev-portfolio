@@ -33,11 +33,11 @@ export default function SiteHeader() {
           "bg-foreground/3 backdrop-blur-lg z-50 rounded-full border",
           "transition-all duration-500 ease-in-out",
           "flex items-center justify-between px-4 sm:px-8 py-2 md:py-3 mx-4 sm:mx-auto",
-          scrolled ? "max-w-2xl" : "max-w-3xl",
+          scrolled ? "max-w-2xl" : "max-w-3xl"
         )}
       >
         <Link href="/" className="hover:cursor-default select-none">
-          <Icons.logo className="size-6" />
+          <Icons.logo className="size-7.5" />
           <span className="sr-only">{siteConfig.name}</span>
         </Link>
 
@@ -69,7 +69,7 @@ function MainNav({
           href={item.href}
           className={cn(
             "hover:cursor-default hover:text-app text-sm",
-            pathname === item.href && "text-app-secondary",
+            pathname === item.href && "text-app-secondary"
           )}
         >
           {item.label}
