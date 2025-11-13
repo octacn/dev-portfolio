@@ -21,8 +21,8 @@ export async function ProjectCardDisplay({
 }) {
   const item = await getCachedProjectItem(name);
 
-  if (!item?.content) {
-    return null;
+  if (!item?.name) {
+    return <div>Name Not Available {name}</div>;
   }
 
   return <ProjectCardViewer item={item} hideImage={hideImage} />;

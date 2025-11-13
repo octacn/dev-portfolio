@@ -83,7 +83,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ReactLenis root>
-              <CatCursor />
+              {/* <CatCursor /> */}
               <MaxWidthWrapper>
                 <SiteHeader />
                 <MaxWidthWrapperContainer>{children}</MaxWidthWrapperContainer>
