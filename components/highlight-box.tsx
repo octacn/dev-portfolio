@@ -81,7 +81,7 @@ function IconHighlightBox({
         "highlight-inner-shadow select-none",
         "py-1 px-2 skill-inner-shadow self-end font-mono",
         "inline-flex items-center justify-center gap-1.5",
-        "bg-foreground/10 text-sm text-foreground font-bold",
+        "bg-foreground/10 text-sm text-foreground font-mono font-semibold",
         "border-2 border-dashed border-foreground/20 rounded-md",
         "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none",
         className

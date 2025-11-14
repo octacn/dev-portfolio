@@ -13,10 +13,22 @@ async function buildRegistryIndex() {
 
 export const Index: Record<string, any> = {`;
 
-  
   for (const item of project.items) {
     index += `
-  "${item.name}": ${JSON.stringify(item)},`;
+  "${item.name}": {
+      "name": "${item.name}",
+      "description": "${item.description}",
+      "challenge": ${JSON.stringify(item.challenge)},
+      "learning": ${JSON.stringify(item.learning)},
+      "techstack": ${JSON.stringify(item.techstack)},
+      "preview": "${item.preview}",
+      "github": "${item.github}",
+      "timeline": "${item.timeline}",
+      "teamsize": "${item.teamsize}",
+      "role": "${item.role}",
+      "status": "${item.status}"
+    }
+  `;
   }
   index += `
   }`;
@@ -25,7 +37,10 @@ export const Index: Record<string, any> = {`;
 
   // Write style index.
   rimraf.sync(path.join(process.cwd(), "content/projects/__index__.tsx"));
-  await fs.writeFile(path.join(process.cwd(), "content/projects/__index__.tsx"), index);
+  await fs.writeFile(
+    path.join(process.cwd(), "content/projects/__index__.tsx"),
+    index
+  );
 }
 
 try {

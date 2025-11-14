@@ -10,9 +10,11 @@ import {
   IconHighlightBox,
   IconBox,
 } from "@/components/highlight-box";
+import { Link } from "next-view-transitions";
 
 type ProjectViewerContext = {
   item: ProjectItemSchema;
+  hideImage?: boolean;
 };
 
 const ProjectViewerContext = React.createContext<ProjectViewerContext | null>(
@@ -32,21 +34,18 @@ function useProjectViewer() {
 function ProjectViewerProvider({
   item,
   children,
-}: Pick<ProjectViewerContext, "item"> & {
+  hideImage,
+}: Pick<ProjectViewerContext, "item" | "hideImage"> & {
   children: React.ReactNode;
 }) {
   return (
     <ProjectViewerContext.Provider
       value={{
         item,
+        hideImage,
       }}
     >
-      <div
-        id={item.name}
-        className="flex min-w-0 scroll-mt-24 flex-col-reverse items-stretch gap-3 overflow-hidden md:flex-col"
-      >
-        {children}
-      </div>
+      <div id={item.name}>{children}</div>
     </ProjectViewerContext.Provider>
   );
 }
@@ -54,9 +53,20 @@ function ProjectViewerProvider({
 function ProjectContent() {
   const { item } = useProjectViewer();
 
-  const socialLinks = [
-    { href: "#", aria: "live-preview", icon: <Icons.preview /> },
-    { href: "#", aria: "view-github", icon: <Icons.github /> },
+  const DISPLAY_TECH_COUNT = 6;
+
+  const techsToShow = item.techstack.slice(0, DISPLAY_TECH_COUNT);
+
+  const remainingCount = Math.max(
+    0,
+    item.techstack.length - DISPLAY_TECH_COUNT
+  );
+
+  const statsItems = [
+    { label: "Timeline", value: item.timeline },
+    { label: "Team Size", value: item.teamsize },
+    { label: "role", value: item.role },
+    { label: "Status", value: item.status },
   ];
 
   return (
@@ -82,30 +92,41 @@ function ProjectContent() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
             </span>
-            In Building
+            {item.status}
           </Badge>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {techsToShow.map((tech, index) => (
             <Badge key={index} hideSelection variant={"secondary"}>
-              React js {index + 1}
+              {tech}
             </Badge>
           ))}
-          <Badge hideSelection variant={"secondary"}>
-            3+ More
-          </Badge>
+          {remainingCount > 0 && (
+            <Badge hideSelection variant={"secondary"}>
+              +{remainingCount} More
+            </Badge>
+          )}
         </div>
         <div className="flex items-center gap-2">
-          {socialLinks.map((s, i) => (
+          <HighlightSocialBox
+            icon
+            href={item.preview}
+            target="_blank"
+            aria-label="live-preview"
+            className="text-muted-foreground hover:text-app"
+          >
+            <Icons.preview />
+          </HighlightSocialBox>
+
+          {item.github && (
             <HighlightSocialBox
               icon
-              key={i}
-              href={s.href}
+              href={item.github}
               target="_blank"
-              aria-label={s.aria}
+              aria-label="view-github"
               className="text-muted-foreground hover:text-app"
             >
-              {s.icon}
+              <Icons.github />
             </HighlightSocialBox>
-          ))}
+          )}
         </div>
       </div>
 
@@ -118,40 +139,52 @@ function ProjectContent() {
       </p>
 
       <div className="grid gap-4 rounded-lg border bg-surface p-4 sm:grid-cols-2 lg:grid-cols-4 my-8">
-        {Array.from({ length: 4 }).map((_, index) => (
-          <div key={index}>
+        {statsItems.map((item) => (
+          <div key={item.label}>
             <h5 className="font-semibold font-mono tracking-wider mb-0.5 text-foreground/90 ">
-              Heading
+              {item.label}
             </h5>
             <p className="text-muted-foreground  tracking-wider text-sm">
-              Content hai bhai
+              {item.value}
             </p>
           </div>
         ))}
       </div>
 
       <div className="grid gap-8 md:grid-cols-2">
-        {Array.from({ length: 2 }).map((_, index) => (
-          <div
-            key={index}
-            className="rounded-lg border border-app/50 bg-app/30 p-4 font-mono"
-          >
-            <h3 className="text-yellow-500 font-semibold mb-2 text-xl">
-              Key Challenges/Learning
-            </h3>
-            <ul className="space-y-0.5">
-              {Array.from({ length: 3 }).map((_, idx) => (
-                <li
-                  key={idx}
-                  className="flex items-center gap-x-2 text-yellow-500"
-                >
-                  <span className="block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
-                  Hello kon hai bhai jesa hai koi nai aaya
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="rounded-lg border border-app/50 bg-app/30 p-4 font-mono">
+          <h3 className="text-yellow-500 font-semibold mb-2 text-xl">
+            Key Challenges
+          </h3>
+          <ul className="space-y-0.5">
+            {item.challenge.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-x-2 text-yellow-500"
+              >
+                <span className="block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rounded-lg border border-app/50 bg-app/30 p-4 font-mono">
+          <h3 className="text-yellow-500 font-semibold mb-2 text-xl">
+            Key Learning
+          </h3>
+          <ul className="space-y-0.5">
+            {item.learning.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-x-2 text-yellow-500"
+              >
+                <span className="block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="rounded-lg border bg-surface p-4 my-8">
@@ -159,35 +192,38 @@ function ProjectContent() {
           Tech Stack
         </h4>
         <div className="flex flex-wrap gap-4">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <IconHighlightBox key={index}>
-              <Icons.react />
-              React js
-            </IconHighlightBox>
-          ))}
+          {item.techstack.map((tech) => {
+            const IconComponent = Icons[tech as keyof typeof Icons];
+
+            return (
+              <IconHighlightBox key={tech} className="capitalize">
+                <IconComponent />
+                {tech}
+              </IconHighlightBox>
+            );
+          })}
         </div>
       </div>
     </article>
   );
 }
 
-function ProjectCardViewer({
-  item,
-  hideImage,
-  ...props
-}: Pick<ProjectViewerContext, "item"> & { hideImage?: boolean }) {
-  const socialLinks = [
-    { href: "#", aria: "live-preview", icon: <Icons.preview /> },
-    { href: "#", aria: "view-github", icon: <Icons.github /> },
-  ];
-
-  const techs = [Icons.react, Icons.nextjs, Icons.mongodb];
-
+function ProjectViewer({ item, ...props }: Pick<ProjectViewerContext, "item">) {
   return (
     <ProjectViewerProvider item={item} {...props}>
-      <section className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-black/10 p-0 border shadow-none rounded-2xl bg-surface group">
-        <React.Activity mode={hideImage ? "hidden" : "visible"}>
-          <div className="p-0 border-b overflow-hidden">
+      <ProjectContent />
+    </ProjectViewerProvider>
+  );
+}
+
+function ProjectCard() {
+  const { item, hideImage } = useProjectViewer();
+
+  return (
+    <section className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-black/10 p-0 border shadow-none rounded-2xl bg-surface group">
+      <React.Activity mode={hideImage ? "hidden" : "visible"}>
+        <div className="p-0 border-b overflow-hidden">
+          <Link href={`projects/${item.name}`}>
             <Image
               className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
               src={"/notesbuddy.webp"}
@@ -196,71 +232,86 @@ function ProjectCardViewer({
               width={1920}
               height={1080}
             />
-          </div>
-        </React.Activity>
+          </Link>
+        </div>
+      </React.Activity>
 
-        <div className="p-6 pt-5">
-          <div className="flex items-center justify-between gap-4">
-            <h1 className="text-xl font-medium line-clamp-1 truncate">
-              Notes Buddy project hai bhai
-            </h1>
-            <div className="flex items-center gap-2">
-              {socialLinks.map((s, i) => (
-                <HighlightSocialBox
-                  icon
-                  key={i}
-                  href={s.href}
-                  target="_blank"
-                  aria-label={s.aria}
-                  className="text-muted-foreground hover:text-app"
-                >
-                  {s.icon}
-                </HighlightSocialBox>
-              ))}
-            </div>
-          </div>
-          <p className="text-muted-foreground text-sm line-clamp-3 mt-2">
-            Notes Buddy is a lightweight note-taking app for capturing ideas,
-            organizing them with tags and folders, and quickly finding content
-            via fast full-text search and Markdown support.
-          </p>
-          <h4 className="font-medium text-foreground/80 font-mono mt-2 mb-0.5 text-sm">
-            Technologies
-          </h4>
-          <div className="flex flex-wrap gap-2">
-            {techs.map((TechIcon, i) => (
-              <IconBox key={i}>
-                <TechIcon />
-              </IconBox>
-            ))}
-          </div>
-
-          <div className="flex justify-between items-center mt-4 text-green-400">
-            <div className="flex items-center gap-2 rounded-md px-2 py-1 text-xs border-green-500/30 border bg-green-500/20">
-              <span className="relative inline-flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-              </span>
-              All Systems Operational
-            </div>
+      <div className="p-6 pt-5">
+        <div className="flex items-center justify-between gap-4">
+          <h1 className="text-xl font-medium line-clamp-1 truncate">
+            {item.name.replace(/-/g, " ")}
+          </h1>
+          <div className="flex items-center gap-2">
             <HighlightSocialBox
               icon
-              href={"#"}
-              className="text-sm hover:underline underline-offset-4 [&_svg:not([class*='size-'])]:size-4 text-foreground/80 hover:text-foreground"
+              href={item.preview}
+              target="_blank"
+              aria-label="live-preview"
+              className="text-muted-foreground hover:text-app"
             >
-              View Details <Icons.arrowRight />
+              <Icons.preview />
             </HighlightSocialBox>
+
+            {item.github && (
+              <HighlightSocialBox
+                icon
+                href={item.github}
+                target="_blank"
+                aria-label="view-github"
+                className="text-muted-foreground hover:text-app"
+              >
+                <Icons.github />
+              </HighlightSocialBox>
+            )}
           </div>
         </div>
-      </section>
-    </ProjectViewerProvider>
+        <p className="text-muted-foreground text-sm line-clamp-3 mt-2">
+          {item.description}
+        </p>
+        <h4 className="font-medium text-foreground/80 font-mono mt-2 mb-0.5 text-sm">
+          Technologies
+        </h4>
+        <div className="flex flex-wrap gap-2">
+          {item.techstack.map((tech) => {
+            const IconComponent = Icons[tech as keyof typeof Icons];
+
+            return (
+              <IconBox key={tech}>
+                <IconComponent />
+              </IconBox>
+            );
+          })}
+        </div>
+
+        <div className="flex justify-between items-center mt-4 text-green-400">
+          <div className="flex items-center gap-2 rounded-md px-2 py-1 text-xs border-green-500/30 border bg-green-500/20">
+            <span className="relative inline-flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+            </span>
+            {item.status}
+          </div>
+          <HighlightSocialBox
+            icon
+            href={`projects/${item.name}`}
+            className="text-sm hover:underline underline-offset-4 [&_svg:not([class*='size-'])]:size-4 text-foreground/80 hover:text-foreground"
+          >
+            View Details <Icons.arrowRight />
+          </HighlightSocialBox>
+        </div>
+      </div>
+    </section>
   );
 }
 
-function ProjectViewer({ item, ...props }: Pick<ProjectViewerContext, "item">) {
+function ProjectCardViewer({
+  item,
+  hideImage,
+  ...props
+}: Pick<ProjectViewerContext, "item"> & { hideImage?: boolean }) {
   return (
-    <ProjectViewerProvider item={item} {...props}>
-      <ProjectContent />
+    <ProjectViewerProvider item={item} hideImage={hideImage} {...props}>
+      <ProjectCard />
     </ProjectViewerProvider>
   );
 }

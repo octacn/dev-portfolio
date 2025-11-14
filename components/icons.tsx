@@ -1,6 +1,8 @@
-type IconProps = React.HTMLAttributes<SVGElement>;
+import { IconStack } from "@/schema/item";
 
-export const Icons = {
+export type IconProps = React.HTMLAttributes<SVGElement>;
+
+export const Icons: Record<IconStack, React.FC<IconProps>> = {
   logo: (props: IconProps) => (
     <svg viewBox="0 0 483 624" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g id="Layer2">
@@ -297,7 +299,6 @@ export const Icons = {
       <path d="M5 12l6 -6"></path>
     </svg>
   ),
-
   claude: (props: IconProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path
