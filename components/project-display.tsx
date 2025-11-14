@@ -22,7 +22,11 @@ export async function ProjectCardDisplay({
   const item = await getCachedProjectItem(name);
 
   if (!item?.name) {
-    return <div>Name Not Available {name}</div>;
+    return (
+      <div className="text-muted-foreground px-4 py-2 rounded-2xl text-sm font-inter border bg-surface w-fit h-fit">
+        No item found {name}.
+      </div>
+    );
   }
 
   return <ProjectCardViewer item={item} hideImage={hideImage} />;
