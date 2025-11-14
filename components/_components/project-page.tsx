@@ -23,15 +23,15 @@ export default function ProjectPage({ names }: { names?: string[] }) {
         ))}
       </div>
       <Container className="grid grid-cols-2 gap-6">
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
-        <ProjectCardDisplay name="case-cobra-copy" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
       </Container>
     </section>
   );

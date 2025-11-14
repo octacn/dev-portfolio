@@ -114,7 +114,7 @@ function ProjectContent() {
       </h1>
 
       <p className="text-muted-foreground mt-2 tracking-wider leading-relaxed">
-        {item.content}
+        {item.description}
       </p>
 
       <div className="grid gap-4 rounded-lg border bg-surface p-4 sm:grid-cols-2 lg:grid-cols-4 my-8">

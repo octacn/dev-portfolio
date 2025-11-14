@@ -1,6 +1,6 @@
 import Container from "../container";
-import { ProjectCard } from "../card";
 import { SectionHeader } from "../section-header";
+import { ProjectCardDisplay } from "../project-display";
 
 export default function ProjectSection() {
   return (
@@ -11,10 +11,10 @@ export default function ProjectSection() {
         href="#"
       />
       <Container className="grid grid-cols-2 gap-6">
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
+        <ProjectCardDisplay name="case-cobra" />
       </Container>
     </section>
   );

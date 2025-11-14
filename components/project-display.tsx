@@ -5,7 +5,7 @@ import { getProjectItem } from "@/lib/content";
 export async function ProjectDisplay({ name }: { name: string }) {
   const item = await getCachedProjectItem(name);
 
-  if (!item?.content) {
+  if (!item?.name) {
     return null;
   }
 
