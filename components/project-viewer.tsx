@@ -66,7 +66,6 @@ function ProjectContent() {
     { label: "Timeline", value: item.timeline },
     { label: "Team Size", value: item.teamsize },
     { label: "role", value: item.role },
-    { label: "Status", value: item.status },
   ];
 
   return (
@@ -86,16 +85,21 @@ function ProjectContent() {
           <Badge
             variant={"secondary"}
             hideSelection
-            className="flex items-center gap-2 border-green-500/30 border bg-green-500/20 text-green-400"
+            className="flex items-center gap-2 border-green-500/30 border bg-green-500/20 text-green-400 capitalize"
           >
             <span className="relative inline-flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
             </span>
-            {item.status}
+            {item.functionality}
           </Badge>
           {techsToShow.map((tech, index) => (
-            <Badge key={index} hideSelection variant={"secondary"}>
+            <Badge
+              key={index}
+              hideSelection
+              variant={"secondary"}
+              className="capitalize tracking-wider"
+            >
               {tech}
             </Badge>
           ))}
@@ -138,48 +142,58 @@ function ProjectContent() {
         {item.description}
       </p>
 
-      <div className="grid gap-4 rounded-lg border bg-surface p-4 sm:grid-cols-2 lg:grid-cols-4 my-8">
+      <div className="grid gap-10 rounded-lg border bg-surface p-4 sm:grid-cols-2 lg:grid-cols-4 my-8">
         {statsItems.map((item) => (
           <div key={item.label}>
-            <h5 className="font-semibold font-mono tracking-wider mb-0.5 text-foreground/90 ">
+            <h5 className="font-semibold font-mono tracking-wider mb-1 text-muted-foreground">
               {item.label}
             </h5>
-            <p className="text-muted-foreground  tracking-wider text-sm">
+            <p className="text-foreground/90 tracking-wider font-mono capitalize font-semibold">
               {item.value}
             </p>
           </div>
         ))}
+        <div>
+          <h5 className="font-semibold font-mono tracking-wider mb-1 text-muted-foreground ">
+            Status
+          </h5>
+          <Badge
+            hideSelection
+            variant={"secondary"}
+            className="capitalize tracking-wider"
+          >
+            {item.status}
+          </Badge>
+        </div>
       </div>
 
       <div className="grid gap-8 md:grid-cols-2">
-        <div className="rounded-lg border border-app/50 bg-app/30 p-4 font-mono">
-          <h3 className="text-yellow-500 font-semibold mb-2 text-xl">
+        <div className="rounded-lg border border-warning/20 bg-warning-muted p-4 font-mono">
+          <h3 className="text-warning-foreground font-semibold mb-2 text-xl">
             Key Challenges
           </h3>
-          <ul className="space-y-0.5">
+          <ul className="space-y-1">
             {item.challenge.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-x-2 text-yellow-500"
-              >
-                <span className="block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
+              <li key={item} className="flex text-warning-foreground/90">
+                <span className="h-6 min-w-3 max-w-3 flex items-center  ">
+                  <span className="block size-1.5 rounded-full bg-warning" />
+                </span>
                 {item}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="rounded-lg border border-app/50 bg-app/30 p-4 font-mono">
-          <h3 className="text-yellow-500 font-semibold mb-2 text-xl">
+        <div className="rounded-lg border border-success/20 bg-success-muted p-4 font-mono">
+          <h3 className="text-success-foreground font-semibold mb-2 text-xl">
             Key Learning
           </h3>
           <ul className="space-y-0.5">
             {item.learning.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-x-2 text-yellow-500"
-              >
-                <span className="block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
+              <li key={item} className="flex text-success-foreground/90">
+                <span className="h-6 min-w-3 max-w-3 flex items-center">
+                  <span className="block size-1.5 rounded-full bg-success" />
+                </span>
                 {item}
               </li>
             ))}
@@ -223,7 +237,7 @@ function ProjectCard() {
     <section className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-black/10 p-0 border shadow-none rounded-2xl bg-surface group">
       <React.Activity mode={hideImage ? "hidden" : "visible"}>
         <div className="p-0 border-b overflow-hidden">
-          <Link href={`projects/${item.name}`}>
+          <Link href={`/projects/${item.name}`}>
             <Image
               className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
               src={"/notesbuddy.webp"}
@@ -289,11 +303,11 @@ function ProjectCard() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
             </span>
-            {item.status}
+            {item.functionality}
           </div>
           <HighlightSocialBox
             icon
-            href={`projects/${item.name}`}
+            href={`/projects/${item.name}`}
             className="text-sm hover:underline underline-offset-4 [&_svg:not([class*='size-'])]:size-4 text-foreground/80 hover:text-foreground"
           >
             View Details <Icons.arrowRight />

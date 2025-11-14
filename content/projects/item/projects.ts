@@ -20,7 +20,8 @@ export const projects: Project["items"] = [
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
-    status: "All Systems Operational",
+    functionality: "All Systems Operational",
+    status: "completed",
     techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
   },
 ];

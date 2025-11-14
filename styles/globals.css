@@ -40,6 +40,16 @@
   --code-foreground: var(--surface-foreground);
   --code-highlight: oklch(0.96 0 0);
   --code-number: oklch(0.56 0 0);
+
+  /* Warning colors (yellow) */
+  --warning: oklch(0.855 0.153 85.746);
+  --warning-foreground: oklch(0.385 0.153 85.746);
+  --warning-muted: oklch(0.96 0.08 85.746);
+
+  /* Success colors (green) */
+  --success: oklch(0.647 0.174 146.645);
+  --success-foreground: oklch(0.347 0.174 146.645);
+  --success-muted: oklch(0.95 0.08 146.645);
 }
 
 .dark {
@@ -79,6 +89,16 @@
   --code-highlight: oklch(0.27 0 0);
   --code-number: oklch(0.72 0 0);
 
+  /* Warning colors (yellow) - dark mode */
+  --warning: oklch(0.755 0.153 85.746);
+  --warning-foreground: oklch(0.955 0.103 85.746);
+  --warning-muted: oklch(0.25 0.08 85.746);
+
+  /* Success colors (green) - dark mode */
+  --success: oklch(0.647 0.174 146.645);
+  --success-foreground: oklch(0.847 0.124 146.645);
+  --success-muted: oklch(0.22 0.08 146.645);
+
 }
 
 @theme inline {
@@ -96,6 +116,14 @@
   --color-code-foreground: var(--code-foreground);
   --color-code-highlight: var(--code-highlight);
   --color-code-number: var(--code-number);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-muted: var(--warning-muted);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-muted: var(--success-muted);
 
 
   --color-background: var(--background);

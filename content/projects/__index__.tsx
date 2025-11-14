@@ -15,8 +15,9 @@ export const Index: Record<string, any> = {
       "github": "https://github.com/sahilkumardev/dev-portfolio",
       "timeline": "2023",
       "teamsize": "1",
+      "functionality": "All Systems Operational",
       "role": "full stack",
-      "status": "All Systems Operational"
+      "status": "completed"
     }
   
   }

@@ -1,11 +1,8 @@
 import z from "zod";
 
-export const techStackStatus = z.enum([
-  "All Systems Operational",
-  "completed",
-  "planned",
-  "building",
-]);
+export const statusStack = z.enum(["completed", "planned", "building"]);
+
+export const functionalityStack = z.enum(["All Systems Operational"]);
 
 export const iconStack = z.enum([
   "logo",
@@ -37,7 +34,8 @@ export const projectItemSchema = z.object({
   timeline: z.string(),
   teamsize: z.string(),
   role: z.string(),
-  status: techStackStatus,
+  functionality: functionalityStack,
+  status: statusStack,
 });
 
 export const projectSchema = z.object({

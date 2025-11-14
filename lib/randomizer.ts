@@ -13,7 +13,7 @@ export async function randomizer(name: string) {
   const shuffled = [...filtered].sort(() => Math.random() - 0.5);
   const getRandomName = shuffled.slice(0, 2);
 
-  return removeExtension(getRandomName), names;
+  return removeExtension(getRandomName);
 }
 
 function removeExtension(array: string[], ext = ".mdx") {

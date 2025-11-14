@@ -25,6 +25,7 @@ export const Index: Record<string, any> = {`;
       "github": "${item.github}",
       "timeline": "${item.timeline}",
       "teamsize": "${item.teamsize}",
+      "functionality": "${item.functionality}",
       "role": "${item.role}",
       "status": "${item.status}"
     }
