@@ -1,25 +1,27 @@
 import {
   defineConfig,
   defineDocs,
-  frontmatterSchema,
+  // frontmatterSchema,
 } from "fumadocs-mdx/config";
-import z from "zod";
+// import z from "zod";
 
 export const docs = defineDocs({
   dir: "content/docs",
-  docs: {
-    schema: frontmatterSchema.extend({
-      links: z
-        .object({
-          doc: z.string().optional(),
-          api: z.string().optional(),
-        })
-        .optional(),
-    }),
-  },
 });
 
 export default defineConfig();
 
 // import { transformers } from "@/lib/highlight-code";
 // import rehypePrettyCode from "rehype-pretty-code";
+
+
+  // docs: {
+  //   schema: frontmatterSchema.extend({
+  //     links: z
+  //       .object({
+  //         doc: z.string().optional(),
+  //         api: z.string().optional(),
+  //       })
+  //       .optional(),
+  //   }),
+  // },

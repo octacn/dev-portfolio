@@ -1,6 +1,6 @@
-import Container from "../container";
-import { SectionHeader } from "../section-header";
-import { ProjectCardDisplay } from "../project-display";
+import Container from "@/components/container";
+import { SectionHeader } from "@/components/section-header";
+import { ProjectCardDisplay } from "@/components/project-display";
 
 export default function ProjectSection() {
   return (

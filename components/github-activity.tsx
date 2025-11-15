@@ -21,9 +21,7 @@ export default function GithubActivity() {
           </p>
         </div>
 
-        {/* <IDETracker /> */}
-
-        <h2>Ide Tracker</h2>
+        <h2>IDE Tracker</h2>
       </section>
 
       <GithubGraph />
@@ -39,7 +37,7 @@ function GithubGraph() {
     <section
       className={cn(
         "rounded-lg border border-dashed overflow-hidden flex items-center justify-center",
-        isLoading ? "h-44" : "p-5",
+        isLoading ? "h-44" : "p-5"
       )}
     >
       {isLoading ? (

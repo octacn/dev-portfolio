@@ -21,6 +21,7 @@ export const iconStack = z.enum([
   "chatgpt",
   "markdown",
   "v0",
+  "plus",
 ]);
 
 export const projectItemSchema = z.object({
