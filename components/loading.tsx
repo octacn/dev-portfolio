@@ -5,8 +5,8 @@ export const Loader = ({ className }: React.ComponentProps<"div">) => {
   return (
     <div
       className={cn(
-        "inline-flex cursor-default items-center justify-center w-full font-inter text-muted-foreground h-20 absolute inset-0",
-        className,
+        "inline-flex cursor-default items-center justify-center w-full font-inter text-muted-foreground absolute inset-0",
+        className
       )}
     >
       <svg

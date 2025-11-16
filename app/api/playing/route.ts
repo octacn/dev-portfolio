@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import type { SpotifyApiResponse, SpotifyCurrentlyPlaying } from "@/spotify";
 
 const client_id = process.env.SPOTIFY_CLIENT_ID!;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET!;
@@ -56,7 +57,6 @@ export async function GET() {
       return NextResponse.json(
         {
           isPlaying: false,
-          track: null as Spotify.PlayingResponse | null,
         },
         { status: 200 }
       );
@@ -68,28 +68,25 @@ export async function GET() {
           isPlaying: false,
           error: "spotify_error",
           status: res.status,
-          track: null as Spotify.PlayingResponse | null,
         },
         { status: res.status }
       );
     }
 
-    const track: Spotify.PlayingResponse = await res.json();
+    const track = (await res.json()) as SpotifyCurrentlyPlaying;
 
-    return NextResponse.json(
-      {
-        isPlaying: track.is_playing,
-        track, // fully typed track object
-      },
-      { status: 200 }
-    );
+    const response: SpotifyApiResponse = {
+      track,
+      is_playing: track.is_playing,
+    };
+
+    return NextResponse.json(response, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       {
         isPlaying: false,
         error: "server_crash",
         message: (error as Error).message,
-        track: null as Spotify.PlayingResponse | null,
       },
       { status: 500 }
     );

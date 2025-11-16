@@ -1,36 +1,40 @@
 "use client";
 
-import * as React from "react";
+import Image from "next/image";
 
 import { Progress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
-import { Pause, Play } from "lucide-react";
-import { Icons } from "@/components/icons";
-import { ButtonGroup } from "@/components/ui/button-group";
+import { cn } from "@/lib/utils";
+import { Loader } from "@/components/loading";
+import { useSpotify } from "@/hooks/use-spotify";
 
 export default function SpotifyActivity() {
-  const [track, setTrack] = React.useState<Spotify.PlayingResponse | null>(
-    null
-  );
-  const [progress, setProgress] = React.useState(20);
+  const {
+    trackData,
+    isLoading,
+    isPlaying,
+    currentTrack,
+    getProgressPercentage,
+    getCurrentProgressMs,
+    formatTime,
+  } = useSpotify();
 
-  React.useEffect(() => {
-    fetch("/api/playing")
-      .then((res) => res.json())
-      .then((data) => setTrack(data));
-  }, []);
+  if (isLoading || !trackData) {
+    return (
+      <section className="bg-surface w-full rounded-2xl border flex relative p-4">
+        <Loader />
+      </section>
+    );
+  }
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
-  }, []);
   return (
     <section className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
-      <div className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center-safe justify-center-safe">
-        {track?.item?.album?.images?.[0]?.url ? (
-          <img
-            src={track.item.album.images[0].url}
+      <div className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center">
+        {currentTrack?.item?.album.images[0]?.url ? (
+          <Image
+            src={currentTrack.item.album.images[0].url}
             alt="Album Art"
+            width={80}
+            height={80}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -38,35 +42,41 @@ export default function SpotifyActivity() {
         )}
       </div>
 
-      <div className="w-full flex flex-col justify-between ">
-        <div className="flex justify-between">
-          <div>
-            <p className="text-foreground/90 text-sm line-clamp-1">
-              Soch Na Sake na koi hai
-            </p>
-            <p className="text-xs text-muted-foreground line-clamp-1">
-              by Amaal Mallik and Raghav
-            </p>
+      <div className="w-full flex flex-col justify-between">
+        <div className="flex-1 min-w-0">
+          <p className="text-foreground/90 text-sm line-clamp-1">
+            {currentTrack?.item?.name || "No track"}
+          </p>
+          <p className="text-xs text-muted-foreground line-clamp-1">
+            {currentTrack?.item?.artists[0]?.name || "Unknown artist"}
+          </p>
+          <div className="text-xs mt-0.5 flex items-center gap-1.5">
+            <span className="relative inline-flex h-2 w-2">
+              <span
+                className={cn(
+                  "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
+                  isPlaying ? "bg-green-500/70" : "bg-yellow-500/70"
+                )}
+              />
+              <span
+                className={cn(
+                  "relative inline-flex h-2 w-2 rounded-full",
+                  isPlaying ? "bg-green-500" : "bg-yellow-500"
+                )}
+              />
+            </span>
+            <span
+              className={cn(isPlaying ? "text-green-500" : "text-yellow-500")}
+            >
+              {isPlaying ? "Current Listening on Spotify" : "Paused on Spotify"}
+            </span>
           </div>
-
-          <ButtonGroup>
-            <Button variant={"outline"} size={"icon"}>
-              <Icons.arrowLeft />
-            </Button>
-            <Button variant={"outline"} size={"icon"}>
-              {track?.actions?.resuming ? <Pause /> : <Play />}
-            </Button>
-
-            <Button variant={"outline"} size={"icon"}>
-              <Icons.arrowRight />
-            </Button>
-          </ButtonGroup>
         </div>
 
         <div className="flex items-center text-muted-foreground gap-2 text-xs">
-          <span>00:00</span>
-          <Progress value={progress} />
-          <span>04:00</span>
+          <span>{formatTime(getCurrentProgressMs())}</span>
+          <Progress value={getProgressPercentage()} className="flex-1" />
+          <span>{formatTime(currentTrack?.item?.duration_ms || 0)}</span>
         </div>
       </div>
     </section>
