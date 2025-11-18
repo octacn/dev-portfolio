@@ -15,6 +15,7 @@ import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 // import CatCursor from "@/components/cat-cursor";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -72,7 +73,7 @@ export default function RootLayout({
             "font-inter tracking-wide font-normal",
             mono.variable,
             inter.variable,
-            cursive.variable,
+            cursive.variable
           )}
           cz-shortcut-listen="true"
         >
@@ -89,6 +90,7 @@ export default function RootLayout({
                 <MaxWidthWrapperContainer>{children}</MaxWidthWrapperContainer>
                 <SiteFooter />
               </MaxWidthWrapper>
+              <Toaster />
             </ReactLenis>
           </ThemeProvider>
         </body>
