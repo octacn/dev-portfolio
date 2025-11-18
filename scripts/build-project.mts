@@ -21,18 +21,20 @@ export const Index: Record<string, any> = {`;
       "challenge": ${JSON.stringify(item.challenge)},
       "learning": ${JSON.stringify(item.learning)},
       "techstack": ${JSON.stringify(item.techstack)},
-      "preview": "${item.preview}",
+      "preview": "${item.preview}", // its is optional
       "github": "${item.github}",
       "timeline": "${item.timeline}",
       "teamsize": "${item.teamsize}",
       "functionality": "${item.functionality}",
       "role": "${item.role}",
-      "status": "${item.status}"
+      "status": "${item.status}",
+      "category": "${item.category}",
+      "tech": "${item.tech}"
     }
   `;
   }
   index += `
-  }`;
+}`;
 
   console.log(`#️⃣  ${Object.keys(project.items).length} items found`);
 

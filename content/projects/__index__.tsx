@@ -11,13 +11,15 @@ export const Index: Record<string, any> = {
       "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
       "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
       "techstack": ["nextjs","react","mongodb","typescript","claude"],
-      "preview": "https://dev.sahilkumardev.com/preview.png",
+      "preview": "undefined",
       "github": "https://github.com/sahilkumardev/dev-portfolio",
       "timeline": "2023",
       "teamsize": "1",
       "functionality": "All Systems Operational",
       "role": "full stack",
-      "status": "completed"
+      "status": "completed",
+      "category": "web",
+      "tech": "full stack"
     }
   
-  }
+}
