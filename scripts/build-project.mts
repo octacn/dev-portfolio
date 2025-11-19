@@ -16,23 +16,22 @@ export const Index: Record<string, any> = {`;
   for (const item of project.items) {
     index += `
   "${item.name}": {
-      "name": "${item.name}",
-      "description": "${item.description}",
-      "challenge": ${JSON.stringify(item.challenge)},
-      "learning": ${JSON.stringify(item.learning)},
-      "techstack": ${JSON.stringify(item.techstack)},
-      "preview": "${item.preview}",
-      "img": ${item.img ? `"${item.img}"` : undefined}, // its is optional
-      "github": "${item.github}",
-      "timeline": "${item.timeline}",
-      "teamsize": "${item.teamsize}",
-      "functionality": "${item.functionality}",
-      "role": "${item.role}",
-      "status": "${item.status}",
-      "category": "${item.category}",
-      "tech": "${item.tech}"
-    }
-  `;
+    "name": "${item.name}",
+    "description": "${item.description}",
+    "challenge": ${JSON.stringify(item.challenge)},
+    "learning": ${JSON.stringify(item.learning)},
+    "techstack": ${JSON.stringify(item.techstack)},
+    "preview": "${item.preview}",
+    "img": ${item.img ? `"${item.img}"` : undefined}, // its is optional
+    "github": "${item.github}",
+    "timeline": "${item.timeline}",
+    "teamsize": "${item.teamsize}",
+    "functionality": "${item.functionality}",
+    "role": "${item.role}",
+    "status": "${item.status}",
+    "category": "${item.category}",
+    "tech": "${item.tech}"
+  },`;
   }
   index += `
 }`;

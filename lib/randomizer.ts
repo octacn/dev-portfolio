@@ -2,9 +2,8 @@ import { source } from "./source";
 
 export async function randomizer(name: string) {
   const names = await getAllProjectNames();
-  const currentPage = name + ".mdx";
 
-  const filtered = names.filter((n) => n !== currentPage);
+  const filtered = names.filter((n) => n !== name);
 
   if (filtered.length <= 2) {
     return filtered;
@@ -13,7 +12,19 @@ export async function randomizer(name: string) {
   const shuffled = [...filtered].sort(() => Math.random() - 0.5);
   const getRandomName = shuffled.slice(0, 2);
 
-  return removeExtension(getRandomName);
+  return getRandomName;
+}
+
+export async function getAllRandomizer() {
+  const names = await getAllProjectNames();
+
+  if (names.length <= 4) {
+    return names;
+  }
+
+  const shuffled = [...names].sort(() => Math.random() - 0.5);
+
+  return shuffled.slice(0, 4);
 }
 
 function removeExtension(array: string[], ext = ".mdx") {

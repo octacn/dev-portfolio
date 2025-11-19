@@ -1,8 +1,11 @@
 import Container from "@/components/container";
 import { SectionHeader } from "@/components/section-header";
 import { ProjectCardDisplay } from "@/components/project-display";
+import { getAllRandomizer } from "@/lib/randomizer";
 
-export default function ProjectSection() {
+export default async function ProjectSection() {
+  const randomProjects = await getAllRandomizer();
+
   return (
     <section className="mt-6">
       <SectionHeader
@@ -11,10 +14,9 @@ export default function ProjectSection() {
         href="#"
       />
       <Container className="grid grid-cols-2 gap-6">
-        <ProjectCardDisplay name="case-cobra" />
-        <ProjectCardDisplay name="case-cobra" />
-        <ProjectCardDisplay name="case-cobra" />
-        <ProjectCardDisplay name="case-cobra" />
+        {randomProjects.map((name) => (
+          <ProjectCardDisplay key={name} name={name} />
+        ))}
       </Container>
     </section>
   );
