@@ -26,5 +26,5 @@ export const projects: Project["items"] = [
     techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
     category: "web",
     tech: "full stack",
-  },
+  }, 
 ];
