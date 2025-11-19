@@ -21,7 +21,8 @@ export const Index: Record<string, any> = {`;
       "challenge": ${JSON.stringify(item.challenge)},
       "learning": ${JSON.stringify(item.learning)},
       "techstack": ${JSON.stringify(item.techstack)},
-      "preview": "${item.preview}", // its is optional
+      "preview": "${item.preview}",
+      "img": ${item.img ? `"${item.img}"` : undefined}, // its is optional
       "github": "${item.github}",
       "timeline": "${item.timeline}",
       "teamsize": "${item.teamsize}",
