@@ -1,9 +1,10 @@
-export async function WebsiteIds() {
-  const websiteId = [
-    {
-      id: "case-cobra",
-      website: "https://casecobracase.vercel.app",
-    },
-  ];
+import { projects } from "@/content/projects/item/projects";
+
+export async function websiteIds() {
+  const websiteId = projects.map((project) => ({
+    id: project.name,
+    website: project.preview,
+  }));
+
   return websiteId;
 }

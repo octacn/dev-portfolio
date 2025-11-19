@@ -2,7 +2,7 @@ import { existsSync } from "fs";
 import path from "path";
 import puppeteer from "puppeteer";
 
-import { WebsiteIds } from "../lib/website";
+import { websiteIds } from "../lib/website";
 
 const SCREENSHOT_PATH = path.join(process.cwd(), "public/screenshots");
 
@@ -10,7 +10,7 @@ const SCREENSHOT_PATH = path.join(process.cwd(), "public/screenshots");
 // Capture screenshots.
 // ----------------------------------------------------------------------------
 async function captureScreenshots() {
-  const websitesIds = await WebsiteIds();
+  const websitesIds = await websiteIds();
   const websites = websitesIds.filter((web) => {
     const lightPath = path.join(SCREENSHOT_PATH, `${web.id}-light.png`);
     const darkPath = path.join(SCREENSHOT_PATH, `${web.id}-dark.png`);
@@ -56,7 +56,6 @@ async function captureScreenshots() {
       }, theme);
 
       await page.reload({ waitUntil: "networkidle2" });
-
 
       await page.screenshot({ path: screenshotPath as `${string}.png` });
     }
