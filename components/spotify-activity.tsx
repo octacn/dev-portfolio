@@ -16,12 +16,29 @@ export default function SpotifyActivity() {
     getProgressPercentage,
     getCurrentProgressMs,
     formatTime,
+    lastPlayed,
   } = useSpotify();
 
-  if (isLoading || !trackData) {
+  if (isLoading) {
     return (
-      <section className="bg-surface w-full rounded-2xl border flex relative p-4">
+      <section className="bg-surface w-full rounded-2xl border flex relative h-28">
         <Loader />
+      </section>
+    );
+  }
+
+  if (!trackData && !lastPlayed) {
+    return (
+      <section className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
+        <div className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center">
+          <span className="text-4xl">🎵</span>
+        </div>
+        <div className="w-full flex flex-col justify-center">
+          <p className="text-foreground/70 text-sm">No recent activity</p>
+          <p className="text-xs text-muted-foreground">
+            Connect Spotify to see your music
+          </p>
+        </div>
       </section>
     );
   }
@@ -29,55 +46,84 @@ export default function SpotifyActivity() {
   return (
     <section className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
       <div className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center">
-        {currentTrack?.item?.album.images[0]?.url ? (
-          <Image
-            src={currentTrack.item.album.images[0].url}
-            alt="Album Art"
-            width={80}
-            height={80}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <span className="text-4xl">🎵</span>
-        )}
+        {(() => {
+          const albumImageUrl =
+            (isPlaying && currentTrack?.item?.album.images[0]?.url) ||
+            lastPlayed?.item?.album.images[0]?.url ||
+            lastPlayed?.track?.item?.album.images[0]?.url;
+
+          return albumImageUrl ? (
+            <Image
+              src={albumImageUrl}
+              alt="Album Art"
+              width={80}
+              height={80}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <span className="text-4xl">🎵</span>
+          );
+        })()}
       </div>
 
       <div className="w-full flex flex-col justify-between">
         <div className="flex-1 min-w-0">
           <p className="text-foreground/90 text-sm line-clamp-1">
-            {currentTrack?.item?.name || "No track"}
+            {isPlaying && currentTrack?.item?.name
+              ? currentTrack.item.name
+              : lastPlayed?.item?.name ||
+                lastPlayed?.track?.item?.name ||
+                "No track"}
           </p>
           <p className="text-xs text-muted-foreground line-clamp-1">
-            {currentTrack?.item?.artists[0]?.name || "Unknown artist"}
+            {isPlaying && currentTrack?.item?.artists?.[0]?.name
+              ? currentTrack.item.artists[0].name
+              : lastPlayed?.item?.artists?.[0]?.name ||
+                lastPlayed?.track?.item?.artists?.[0]?.name ||
+                "Unknown artist"}
           </p>
           <div className="text-xs mt-0.5 flex items-center gap-1.5">
             <span className="relative inline-flex h-2 w-2">
               <span
                 className={cn(
                   "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
-                  isPlaying ? "bg-green-500/70" : "bg-yellow-500/70"
+                  isPlaying ? "bg-green-500/70" : "bg-gray-500/70"
                 )}
               />
               <span
                 className={cn(
                   "relative inline-flex h-2 w-2 rounded-full",
-                  isPlaying ? "bg-green-500" : "bg-yellow-500"
+                  isPlaying ? "bg-green-500" : "bg-gray-500"
                 )}
               />
             </span>
             <span
-              className={cn(isPlaying ? "text-green-500" : "text-yellow-500")}
+              className={cn(isPlaying ? "text-green-500" : "text-gray-500")}
             >
-              {isPlaying ? "Current Listening on Spotify" : "Paused on Spotify"}
+              {isPlaying
+                ? "Currently listening on Spotify"
+                : "Last played on Spotify"}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center text-muted-foreground gap-2 text-xs">
-          <span>{formatTime(getCurrentProgressMs())}</span>
-          <Progress value={getProgressPercentage()} className="flex-1" />
-          <span>{formatTime(currentTrack?.item?.duration_ms || 0)}</span>
-        </div>
+        {isPlaying && currentTrack?.item ? (
+          <div className="flex items-center text-muted-foreground gap-2 text-xs">
+            <span>{formatTime(getCurrentProgressMs())}</span>
+            <Progress value={getProgressPercentage()} className="flex-1" />
+            <span>{formatTime(currentTrack.item.duration_ms)}</span>
+          </div>
+        ) : (
+          <div className="flex items-center text-muted-foreground text-xs">
+            <span>
+              {lastPlayed?.played_at
+                ? `Last played: ${new Date(
+                    lastPlayed.played_at
+                  ).toLocaleString()}`
+                : "Not currently playing"}
+            </span>
+          </div>
+        )}
       </div>
     </section>
   );

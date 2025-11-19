@@ -48,7 +48,7 @@ export default function CallToAction() {
 
   return (
     <>
-      <Container className="mb-48 rounded-lg border border-dashed bg-surface p-6 grid place-content-center place-items-center">
+      <Container className="rounded-lg border border-dashed bg-surface p-6 grid place-content-center place-items-center">
         <p className="text-xl font-mono tracking-wide text-foreground/90 mb-4">
           Interested in collaborating or discussing opportunities?
         </p>

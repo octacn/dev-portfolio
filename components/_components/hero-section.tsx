@@ -46,7 +46,7 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
-        <div className="mt-10 space-y-6 text-base md:text-lg text-muted-foreground whitespace-pre-wrap font-mono ">
+        <div className="mt-6 space-y-6 text-base md:text-lg text-muted-foreground whitespace-pre-wrap font-mono ">
           <p className="flex flex-wrap gap-y-2 gap-x-1.5">
             {renderDescription()}
           </p>
@@ -66,22 +66,12 @@ export default function HeroSection() {
 
 function Status() {
   return (
-    // <div className="absolute bg-background border flex items-center justify-center .5 rounded-full transition-all duration-300 ease-out pointer-events-none group hover:pointer-events-auto cursor-pointer overflow-hidden hover:pr-3 hover:pl-2 hover:rounded-2xl">
-    //   <span className="relative inline-flex h-2 w-2 shrink-0">
-    //     <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 bg-green-500/70" />
-    //     <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-    //   </span>
-    //   <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out ml-0 group-hover:ml-2 whitespace-nowrap text-xs font-medium">Hello sir</span>
-    // </div>
-    <div className="absolute bottom-1 left-22 border group flex items-center justify-center transition-colors duration-200 rounded-full bg-background px-2">
-      <span className="relative inline-flex h-2 w-2 shrink-0">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 bg-green-500/70" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-      </span>
-      <span className="inline-flex overflow-hidden max-w-0 group-hover:max-w-96 transition-[max-width] duration-200 ease-out  data-[active=true]:group-hover:max-w-0">
-        <h1 className="text-orange-400/90 w-max h-fit text-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          Building own components library
-        </h1>
+    <div className="absolute bottom-1 left-22 border group flex items-center justify-center transition-all duration-300 ease-in-out rounded-full bg-background p-1 hover:shadow-lg cursor-default select-none skill-inner-shadow">
+      <span>🫡</span>
+      <span className="flex overflow-hidden max-w-0 group-hover:max-w-96 transition-[max-width] duration-300 ease-in-out font-mono mt-0.5">
+        <span className="w-max h-fit text-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out delay-75 transform translate-x-2 group-hover:translate-x-0 text-sm font-medium pr-1">
+          Building components library
+        </span>
       </span>
     </div>
   );

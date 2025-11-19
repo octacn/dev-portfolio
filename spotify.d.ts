@@ -24,8 +24,15 @@ export interface SpotifyCurrentlyPlaying {
   item: SpotifyTrackItem | null;
 }
 
+export interface SpotifyRecentlyPlayedItem {
+  track: SpotifyTrackItem;
+  played_at: string;
+}
+
 export interface SpotifyApiResponse {
   track?: SpotifyCurrentlyPlaying;
   is_playing?: boolean;
   isPlaying?: boolean;
+  item?: SpotifyTrackItem;
+  played_at?: string;
 }

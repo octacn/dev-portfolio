@@ -5,6 +5,7 @@ import type { SpotifyApiResponse } from "@/spotify";
 
 interface UseSpotifyReturn {
   trackData: SpotifyApiResponse | null;
+  lastPlayed: SpotifyApiResponse | null;
   isLoading: boolean;
   currentProgress: number;
   isPlaying: boolean;
@@ -29,6 +30,9 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
   } = options;
 
   const [trackData, setTrackData] = React.useState<SpotifyApiResponse | null>(
+    null
+  );
+  const [lastPlayed, setLastPlayed] = React.useState<SpotifyApiResponse | null>(
     null
   );
   const [currentProgress, setCurrentProgress] = React.useState(0);
@@ -66,18 +70,39 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
         },
       });
 
-      if (!res.ok) {
+      const lastPlayedRes = await fetch("/api/last-played", {
+        cache: "no-store",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!res.ok || !lastPlayedRes.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
 
-      const data = await res.json();
+      const currentData = await res.json();
+      const lastPlayedData = await lastPlayedRes.json();
 
-      if (data.error) {
-        console.log("Error fetching track data:", data.error);
+      if (currentData.error && lastPlayedData.error) {
+        console.log(
+          "Error fetching track data:",
+          currentData.error,
+          lastPlayedData.error
+        );
         return;
       }
 
-      setTrackData(data);
+      if (currentData.track && currentData.track.is_playing) {
+        setTrackData(currentData);
+      } else {
+        setTrackData(null);
+      }
+
+      if (lastPlayedData.track) {
+        setLastPlayed(lastPlayedData);
+      }
+
       setCurrentProgress(0);
     } catch (err) {
       console.error("Error fetching track:", err);
@@ -120,15 +145,14 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
 
   return {
     trackData,
+    lastPlayed,
     isLoading,
     currentProgress,
-    isPlaying: trackData?.track?.is_playing ?? false,
-    currentTrack: trackData?.track ?? null,
+    isPlaying: trackData?.track?.is_playing || false,
+    currentTrack: trackData?.track || lastPlayed?.track || null,
     getProgressPercentage,
     getCurrentProgressMs,
     formatTime,
     refetch: fetchTrack,
   };
 }
-
-export default useSpotify;

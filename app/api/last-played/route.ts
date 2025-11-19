@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { getAccessToken } from "@/lib/get-access-token";
-import type { SpotifyApiResponse, SpotifyCurrentlyPlaying } from "@/spotify";
+import { SpotifyApiResponse } from "@/spotify";
 
-const NOW_PLAYING_ENDPOINT =
-  "https://api.spotify.com/v1/me/player/currently-playing";
+const RECENTLY_PLAYED_ENDPOINT =
+  "https://api.spotify.com/v1/me/player/recently-played?limit=1";
 
 export async function GET() {
   try {
@@ -16,19 +16,10 @@ export async function GET() {
       );
     }
 
-    const res = await fetch(NOW_PLAYING_ENDPOINT, {
+    const res = await fetch(RECENTLY_PLAYED_ENDPOINT, {
       headers: { Authorization: `Bearer ${access_token}` },
       cache: "no-store",
     });
-
-    if (res.status === 204) {
-      return NextResponse.json(
-        {
-          isPlaying: false,
-        },
-        { status: 200 }
-      );
-    }
 
     if (!res.ok) {
       return NextResponse.json(
@@ -41,14 +32,29 @@ export async function GET() {
       );
     }
 
-    const track = (await res.json()) as SpotifyCurrentlyPlaying;
+    const data = await res.json();
 
-    const response: SpotifyApiResponse = {
-      track,
-      is_playing: track.is_playing,
+    const lastPlayedItem = data.items?.[0];
+
+    if (!lastPlayedItem) {
+      return NextResponse.json(
+        { isPlaying: false, track: null },
+        { status: 200 }
+      );
+    }
+
+    const lastPlayed: SpotifyApiResponse = {
+      track: {
+        is_playing: false,
+        progress_ms: 0,
+        item: lastPlayedItem.track,
+      },
+      is_playing: false,
+      item: lastPlayedItem.track,
+      played_at: lastPlayedItem.played_at,
     };
 
-    return NextResponse.json(response, { status: 200 });
+    return NextResponse.json(lastPlayed, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       {

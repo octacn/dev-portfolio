@@ -5,6 +5,6 @@ import { cn } from "@/lib/utils";
 export default function Box({
   children,
   className,
-}: React.ComponentProps<"div">) {
-  return <div className={cn("", className)}>{children}</div>;
+}: React.ComponentProps<"section">) {
+  return <section className={cn("", className)}>{children}</section>;
 }
