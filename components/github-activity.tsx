@@ -6,6 +6,7 @@ import ActivityCalendar from "react-activity-calendar";
 import { useGithubData } from "@/hooks/github-data";
 import { Loader } from "@/components/loading";
 import { cn } from "@/lib/utils";
+import IdeTracker from "./ide-tracker";
 // import IDETracker from "@/hooks/ide-tracker";
 
 export default function GithubActivity() {
@@ -21,7 +22,7 @@ export default function GithubActivity() {
           </p>
         </div>
 
-        <h2>IDE Tracker</h2>
+         <IdeTracker />
       </section>
 
       <GithubGraph />
