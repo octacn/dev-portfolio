@@ -1,16 +1,48 @@
 import { NextResponse } from "next/server";
 
+const TRACKER_ENDPOINT =
+  "https://api.wakatime.com/api/v1/users/current/durations";
+
+function trackerHeaders() {
+  return {
+    Authorization:
+      "Basic " +
+      Buffer.from(process.env.TRACKER_API_KEY + ":").toString("base64"),
+  };
+}
+
+function formatDate(d: Date) {
+  return d.toISOString().split("T")[0];
+}
+
 export async function GET() {
-  const key = process.env.TRACKER_API_KEY!;
+  try {
+    const today = formatDate(new Date());
 
-  // Get today's date in YYYY-MM-DD
-  const today = new Date().toISOString().slice(0, 10);
+    const editorRes = await fetch(
+      `${TRACKER_ENDPOINT}?date=${today}&slice_by=editor`,
+      { headers: trackerHeaders() }
+    );
 
-  const res = await fetch(
-    `https://wakatime.com/api/v1/users/current/summaries?start=${today}&end=${today}&api_key=${key}`,
-    { next: { revalidate: 600 } }
-  );
+    const editorData = await editorRes.json();
 
-  const data = await res.json();
-  return NextResponse.json(data);
+    const vsCode = editorData?.data?.find((e: { editor?: string }) =>
+      e.editor?.toLowerCase().includes("code")
+    );
+
+    return NextResponse.json({
+      success: true,
+
+      today: {
+        date: today,
+        vsCodeTimeSeconds: vsCode?.duration ?? 0,
+        vsCodeTimeReadable: vsCode?.text ?? "0 hrs",
+      },
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, message: error },
+      { status: 500 }
+    );
+  }
 }
