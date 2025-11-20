@@ -4,7 +4,7 @@ import puppeteer from "puppeteer";
 
 import { websiteIds } from "../lib/website";
 
-const SCREENSHOT_PATH = path.join(process.cwd(), "public/screenshots");
+const SCREENSHOT_PATH = path.join(process.cwd(), "public/project");
 
 // ----------------------------------------------------------------------------
 // Capture screenshots.

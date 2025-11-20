@@ -72,10 +72,17 @@ function ProjectContent() {
     <article className="mx-auto max-w-4xl">
       <section className="relative aspect-video overflow-hidden rounded-xl border border-border/30">
         <Image
-          src={"/notesbuddy.webp"}
-          alt={"Project Image"}
+          src={`/project/${item.name}-light.png`}
+          alt={item.name.replace(/-/g, " ")}
           fill
-          className="object-cover"
+          className="object-cover dark:hidden"
+          priority
+        />
+        <Image
+          src={`/project/${item.name}-dark.png`}
+          alt={item.name.replace(/-/g, " ")}
+          fill
+          className="object-cover hidden dark:block"
           priority
         />
       </section>
@@ -239,9 +246,17 @@ function ProjectCard() {
         <div className="p-0 border-b overflow-hidden">
           <Link href={`/projects/${item.name}`}>
             <Image
-              className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out"
-              src={"/notesbuddy.webp"}
-              alt={"Notes Buddy"}
+              src={`/project/${item.name}-light.png`}
+              alt={item.name.replace(/-/g, " ")}
+              className="w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out dark:hidden"
+              loading="lazy"
+              width={1920}
+              height={1080}
+            />
+            <Image
+              src={`/project/${item.name}-dark.png`}
+              alt={item.name.replace(/-/g, " ")}
+              className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-out hidden dark:block"
               loading="lazy"
               width={1920}
               height={1080}
@@ -252,7 +267,7 @@ function ProjectCard() {
 
       <div className="p-6 pt-5">
         <div className="flex items-center justify-between gap-4">
-          <h1 className="text-xl font-medium line-clamp-1 truncate">
+          <h1 className="text-2xl tracking-wide font-medium line-clamp-1 truncate capitalize font-mono">
             {item.name.replace(/-/g, " ")}
           </h1>
           <div className="flex items-center gap-2">
