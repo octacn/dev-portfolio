@@ -33,8 +33,18 @@ export default function HeroSection() {
     <Box className="mb-10">
       <section>
         <div className="flex items-center-safe gap-4">
-          <div className="border rounded-full relative w-fit p-3 [&_svg:not([class*='size-'])]:size-24 bg-surface btn-inner-shadow">
-            <Icons.logo />
+          <div
+            className="border rounded-full relative w-fit p-3 [&_svg:not([class*='size-'])]:size-24 bg-white/90 border-orange-500/65"
+            style={{
+              boxShadow: `
+                inset 0 20px 12px oklch(90% 0.12 55.934),
+                inset 0 -20px 12px oklch(90% 0.12 55.934),
+                inset 20px 0 12px oklch(90% 0.12 55.934),
+                inset -20px 0 12px oklch(90% 0.12 55.934)
+                `,
+            }}
+          >
+            <Icons.logo className="text-black" />
             <Status />
           </div>
           <div className="font-cursive">

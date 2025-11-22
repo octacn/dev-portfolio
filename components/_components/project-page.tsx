@@ -1,21 +1,14 @@
 import { ProjectCardDisplay } from "@/components/project-display";
 import Container from "@/components/container";
-import { Link } from "next-view-transitions";
-import { Button } from "@/components/ui/button";
-import { Icons } from "@/components/icons";
+import PageHeader from "@/components/page-header";
 
 export default function ProjectPage({ names }: { names: string[] }) {
   return (
     <section className="mb-8">
-      <div className="flex items-center justify-between">
-        <Link href="/projects">
-          <Button variant="secondary" size="sm">
-            <Icons.arrowLeft />
-            Back to Home
-          </Button>
-        </Link>
-        <h1 className="text-xl font-medium tracking-wide">Projects</h1>
-      </div>
+      <PageHeader
+        heading="Projects"
+        description="A showcase of my work and accomplishments."
+      />
 
       <Container className="grid grid-cols-2 gap-6">
         {names.map((name) => (

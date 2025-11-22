@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/config";
+import Link from "next/link";
 
 export default function SiteFooter() {
   return (
@@ -14,9 +15,17 @@ export default function SiteFooter() {
           </blockquote>
         </div>
       </div>
-      <p className="text-muted-foreground mt-6">
-        Design & Developed by <b>{siteConfig.developer}</b> <br /> &copy;{" "}
-        {new Date().getFullYear()}. All rights reserved.
+      <p className="text-muted-foreground mt-6 text-base font-mono">
+        Design & Developed by
+        <Link
+          href={siteConfig.social.linkedin}
+          className="whitespace-nowrap transition-colors duration-300 ml-1 hover:text-app text-app/70 cursor-default font-medium"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {siteConfig.developer}
+        </Link>
+        <br /> &copy; {new Date().getFullYear()}. All rights reserved.
       </p>
     </footer>
   );

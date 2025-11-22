@@ -14,7 +14,7 @@ export const siteConfig = {
   },
   navItems: [
     {
-      href: "/about",
+      href: "/",
       label: "About",
     },
     {
