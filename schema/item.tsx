@@ -26,6 +26,10 @@ export const iconStack = z.enum([
   "markdown",
   "v0",
   "plus",
+
+  "twitter",
+  "instagram",
+  "linkedin"
 ]);
 
 export const projectItemSchema = z.object({

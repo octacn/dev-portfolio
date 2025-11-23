@@ -1,8 +1,8 @@
-import { HighlightSocialBox } from "@/components/highlight-box";
 import { socialItems } from "@/lib/config";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
+import { cn } from "@/lib/utils";
 
 export default function SocialMedia() {
   const buttonIcons = {
@@ -44,9 +44,17 @@ export default function SocialMedia() {
       <div className="flex gap-x-3">
         {socialItems.map((Item) => {
           return (
-            <HighlightSocialBox key={Item.label} href={Item.href}>
+            <Link
+              key={Item.label}
+              href={Item.href}
+              className={cn(
+                "[&_svg:not([class*='size-'])]:size-5 [&_svg]:pointer-events-none",
+                "transition-colors inline-flex items-center justify-center",
+                "border bg-code p-1 rounded-md btn-inner-shadow cursor-default"
+              )}
+            >
               <Item.icon />
-            </HighlightSocialBox>
+            </Link>
           );
         })}
       </div>

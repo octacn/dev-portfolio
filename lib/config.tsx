@@ -85,11 +85,16 @@ export const socialItems = [
   {
     href: siteConfig.social.twitter,
     label: "twitter",
-    icon: Icons.nextjs,
+    icon: Icons.twitter,
   },
   {
     href: siteConfig.social.github,
     label: "github",
-    icon: Icons.typescript,
+    icon: Icons.instagram,
+  },
+  {
+    href: siteConfig.social.linkedin,
+    label: "linkedin",
+    icon: Icons.linkedin,
   },
 ];
