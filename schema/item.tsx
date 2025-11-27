@@ -29,6 +29,7 @@ export const iconStack = z.enum([
   "nextauth",
   "tailwind",
   "vercel",
+  "javascript",
 
   "twitter",
   "instagram",
@@ -45,7 +46,7 @@ export const projectItemSchema = z.object({
   github: z.string(),
   timeline: z.string(),
   teamsize: z.string(),
-  role: z.string(),
+  role: techCategory,
   category: categoryStack,
   tech: techCategory,
   functionality: functionalityStack,

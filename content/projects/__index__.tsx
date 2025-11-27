@@ -17,7 +17,7 @@ export const Index: Record<string, any> = {
     "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "Full Stack",
+    "role": "full stack",
     "status": "completed",
     "category": "web",
     "tech": "full stack"
@@ -34,7 +34,7 @@ export const Index: Record<string, any> = {
     "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "Full Stack Developer",
+    "role": "full stack",
     "status": "completed",
     "category": "web",
     "tech": "full stack"
@@ -51,27 +51,27 @@ export const Index: Record<string, any> = {
     "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "Full Stack Developer",
+    "role": "full stack",
     "status": "completed",
     "category": "web",
     "tech": "frontend"
   },
   "brain-wave": {
     "name": "brain-wave",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
+    "description": "BrainWave is a modern AI-themed frontend web application focused on delivering a clean, interactive and visually appealing user experience inspired by AI platforms. The project demonstrates strong UI design principles, responsive layout techniques, and frontend performance optimization using Next.js and Tailwind CSS.",
+    "challenge": ["Creating a modern UI that visually represents an AI-powered product.","Maintaining responsiveness across different screen sizes.","Implementing animated elements without harming performance.","Building reusable UI components for scalability.","Ensuring cross-browser compatibility."],
+    "learning": ["Strengthened frontend development skills with Next.js.","Learned advanced Tailwind CSS layout techniques.","Improved understanding of responsive UI systems.","Gained experience in component-driven UI architecture.","Built better visual hierarchy and design consistency."],
+    "techstack": ["react","javascript","tailwind"],
     "preview": "https://brainwave.sahilkumardev.com",
     "img": undefined, // its is optional
-    "github": "https://github.com/sahilkumardev/dev-portfolio",
-    "timeline": "2023",
+    "github": "https://github.com/sahilkumardev/brain-wave-landing-page",
+    "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "full stack",
+    "role": "frontend",
     "status": "completed",
     "category": "web",
-    "tech": "full stack"
+    "tech": "frontend"
   },
   "case-cobra": {
     "name": "case-cobra",
