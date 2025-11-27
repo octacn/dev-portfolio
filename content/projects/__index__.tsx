@@ -41,20 +41,20 @@ export const Index: Record<string, any> = {
   },
   "bento-portfolio": {
     "name": "bento-portfolio",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
+    "description": "A modern bento-style developer portfolio built to showcase projects, skills, and professional presence with a clean, minimal and interactive layout. Designed to present work, tools, and contact information in a visually structured grid format for better usability and first impressions.",
+    "challenge": ["Designing a grid-based bento layout that stays responsive across all screen sizes.","Maintaining visual balance between content blocks without overwhelming the UI.","Improving loading speed while handling heavy UI components and animations.","Ensuring consistent design system across cards and sections.","Structuring project data for scalability and easy future updates."],
+    "learning": ["Learned how to build bento-style UI with CSS grid and flexible layouts.","Improved project structuring for scalable portfolio management.","Strengthened performance optimization techniques in Next.js.","Gained confidence in UI hierarchy and visual storytelling.","Deepened understanding of responsive design principles."],
+    "techstack": ["nextjs","react","typescript","tailwind","vercel"],
     "preview": "https://bento.sahilkumardev.com",
     "img": undefined, // its is optional
-    "github": "https://github.com/sahilkumardev/dev-portfolio",
-    "timeline": "2023",
+    "github": "https://github.com/sahilkumardev/bento-portfolio",
+    "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "full stack",
+    "role": "Full Stack Developer",
     "status": "completed",
     "category": "web",
-    "tech": "full stack"
+    "tech": "frontend"
   },
   "brain-wave": {
     "name": "brain-wave",
