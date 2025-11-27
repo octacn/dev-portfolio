@@ -12,7 +12,6 @@ export const Index: Record<string, any> = {
     "learning": ["Built end-to-end authentication flows using NextAuth/Auth.js.","Learned secure credential handling and password encryption techniques.","Implemented session-based authentication and cookie security.","Integrated OAuth providers with custom credential authentication.","Understood real-world authentication architecture in production systems."],
     "techstack": ["nextjs","react","mongodb","typescript","nextauth","tailwind"],
     "preview": "https://auth.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/user-authentication",
     "timeline": "2024",
     "teamsize": "1",
@@ -29,7 +28,6 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to structure a service-based agency website for better user flow.","Improved understanding of responsive UI design using Tailwind CSS.","Gained experience in SEO-friendly website structure for business platforms.","Enhanced skills in performance optimization in Next.js.","Practiced applying real-world design principles for client-focused layouts."],
     "techstack": ["nextjs","react","typescript","tailwind","vercel","mongodb"],
     "preview": "https://axisbuddy.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/axis-buddy",
     "timeline": "2024",
     "teamsize": "1",
@@ -46,7 +44,6 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to build bento-style UI with CSS grid and flexible layouts.","Improved project structuring for scalable portfolio management.","Strengthened performance optimization techniques in Next.js.","Gained confidence in UI hierarchy and visual storytelling.","Deepened understanding of responsive design principles."],
     "techstack": ["nextjs","react","typescript","tailwind","vercel"],
     "preview": "https://bento.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/bento-portfolio",
     "timeline": "2024",
     "teamsize": "1",
@@ -63,7 +60,6 @@ export const Index: Record<string, any> = {
     "learning": ["Strengthened frontend development skills with Next.js.","Learned advanced Tailwind CSS layout techniques.","Improved understanding of responsive UI systems.","Gained experience in component-driven UI architecture.","Built better visual hierarchy and design consistency."],
     "techstack": ["react","javascript","tailwind"],
     "preview": "https://brainwave.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/brain-wave-landing-page",
     "timeline": "2024",
     "teamsize": "1",
@@ -80,7 +76,6 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to manage complex UI states in React and Next.js.","Improved understanding of image optimization and lazy loading techniques.","Strengthened frontend architecture using reusable components.","Gained experience in building real-world e-commerce flows.","Learned how to structure scalable frontend projects."],
     "techstack": ["nextjs","react","typescript","tailwind","prisma","stripe","zod","shadcn"],
     "preview": "https://case-cobra.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/case-cobra",
     "timeline": "2024",
     "teamsize": "1",
@@ -97,7 +92,6 @@ export const Index: Record<string, any> = {
     "learning": ["Improved understanding of modern UI layout systems using Tailwind CSS.","Learned how to structure a frontend project for scalability in Next.js.","Gained experience in creating Chrome-optimized UIs.","Learned performance optimization techniques for static pages.","Improved typography and color system design skills."],
     "techstack": ["react","tailwind","typescript"],
     "preview": "https://chromepage.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/chrome-landing-page",
     "timeline": "2023",
     "teamsize": "1",
@@ -114,7 +108,6 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to structure a personal portfolio for better user experience.","Improved responsive design techniques using CSS media queries and utilities.","Gained better understanding of layout composition and typography hierarchy.","Improved frontend debugging and browser testing skills."],
     "techstack": ["react","tailwind","javascript"],
     "preview": "https://classic.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/classic-portfolio",
     "timeline": "2023",
     "teamsize": "1",
@@ -131,7 +124,6 @@ export const Index: Record<string, any> = {
     "learning": ["Improved understanding of Next.js routing and component structuring.","Learned how to use Tailwind CSS for scalable and maintainable UI design.","Gained experience in building accessible user interfaces.","Strengthened skills in responsive layout design using Flex box and Grid.","Improved code organization for reusable UI components."],
     "techstack": ["nextjs","react","typescript","tailwind"],
     "preview": "https://essence.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/essence-portfolio",
     "timeline": "2024",
     "teamsize": "1",
@@ -148,7 +140,6 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to build user-focused interfaces with React and Next.js.","Improved skills in Tailwind CSS for layout and component styling.","Practiced accessibility and form UX best practices.","Enhanced understanding of component-based architecture.","Improved frontend performance and code organization."],
     "techstack": ["nextjs","react","tailwind","typescript","mongodb","nextauth"],
     "preview": "https://feedbackify.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/feedbackify",
     "timeline": "2023",
     "teamsize": "1",
@@ -165,8 +156,7 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to structure SaaS-style layouts using Next.js routing.","Improved frontend architecture using reusable components.","Practiced creating dashboard-style UI and data presentation components.","Gained experience in building clean UX for form-based applications.","Improved performance optimization using lazy loading and component splitting."],
     "techstack": ["nextjs","react","typescript","tailwind","mongodb","shadcn","nextauth","stripe"],
     "preview": "https://myadmit.ai",
-    "img": undefined, // its is optional
-    "github": "",
+    "github": undefined,
     "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
@@ -182,7 +172,6 @@ export const Index: Record<string, any> = {
     "learning": ["Built deep understanding of design systems and reusable component architecture.","Improved mastery of Tailwind CSS utility-first styling patterns.","Learned how to scale UI libraries with proper folder structures and naming conventions.","Gained experience in component documentation strategy.","Strengthened TypeScript usage for safer UI development."],
     "techstack": ["nextjs","react","typescript","tailwind","shadcn"],
     "preview": "https://ui-v1.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/shadwui",
     "timeline": "2024",
     "teamsize": "1",
@@ -199,7 +188,6 @@ export const Index: Record<string, any> = {
     "learning": ["Built a reusable design system using Tailwind and ShadCN UI.","Strengthened React component architecture and prop patterns.","Improved performance tuning in Next.js apps.","Learned scalable folder structure for component libraries.","Implemented dark mode using Tailwind and theme providers.","Improved documentation writing and developer experience design."],
     "techstack": ["nextjs","react","typescript","tailwind","shadcn","vercel"],
     "preview": "https://ui-v2.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/shadwui-v2",
     "timeline": "2024",
     "teamsize": "1",
@@ -216,7 +204,6 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to consume REST APIs from a frontend application.","Improved understanding of asynchronous JavaScript (fetch, async/await).","Built experience in handling API errors and edge cases properly.","Strengthened responsive design and layout skills.","Practiced structuring real-world frontend projects efficiently."],
     "techstack": ["react","tailwind","javascript"],
     "preview": "https://temperatureio.netlify.app",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/temperatureio",
     "timeline": "2023",
     "teamsize": "1",
@@ -226,6 +213,22 @@ export const Index: Record<string, any> = {
     "category": "web",
     "tech": "frontend"
   },
+  "terminal-portfolio": {
+    "name": "terminal-portfolio",
+    "description": "A terminal-inspired interactive developer portfolio that replicates a real command-line experience on the web. Users can explore skills, projects, and contact information by typing commands like in a Linux shell environment. Designed to stand out with a hacker-style UI and smooth terminal animations.",
+    "challenge": ["Simulating a real terminal experience with accurate command behavior in the browser.","Handling dynamic command parsing and output rendering efficiently.","Ensuring accessibility and responsiveness despite a non-traditional UI layout.","Optimizing performance while rendering command history and animations."],
+    "learning": ["Built deep understanding of JavaScript event handling and state management.","Learned how to design a fully interactive UI using keyboard-driven input systems.","Improved skills in Next.js routing and component architecture.","Gained experience in creating custom animations using Tailwind and CSS transitions."],
+    "techstack": ["nextjs","react","tailwind","typescript","vercel"],
+    "preview": "https://term.sahilkumardev.com",
+    "github": "https://github.com/sahilkumardev/terminal-portfolio",
+    "timeline": "2023",
+    "teamsize": "1",
+    "functionality": "All Systems Operational",
+    "role": "full stack",
+    "status": "completed",
+    "category": "web",
+    "tech": "full stack"
+  },
   "zee-movie-hub": {
     "name": "zee-movie-hub",
     "description": "A modern movie discovery web application that allows users to explore trending movies, browse by category, and view detailed information such as ratings, release dates, and descriptions. The app focuses on fast performance, clean UI, and dynamic content loading for a smooth browsing experience.",
@@ -233,7 +236,6 @@ export const Index: Record<string, any> = {
     "learning": ["Learned how to integrate external APIs in a Next.js application.","Improved understanding of dynamic routing and server-side rendering.","Gained experience in building reusable UI components using Tailwind CSS.","Understood performance optimization using lazy loading and component splitting.","Strengthened debugging skills while handling async data and API failures."],
     "techstack": ["nextjs","react","typescript","tailwind"],
     "preview": "https://zeemoviehub.sahilkumardev.com",
-    "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/zeemovieshub",
     "timeline": "2023",
     "teamsize": "1",

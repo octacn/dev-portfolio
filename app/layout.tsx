@@ -14,8 +14,9 @@ import {
 import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
-// import CatCursor from "@/components/cat-cursor";
+import CatCursor from "@/components/cat-cursor";
 import { Toaster } from "@/components/ui/sonner";
+import { baseMetadata } from "@/lib/metadata";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,13 +34,7 @@ const cursive = Cursive({
   weight: ["400"],
 });
 
-export const metadata: Metadata = {
-  title: "dev portfolio",
-  description:
-    "This is portfolio website for a developer. It is clean and modern design.",
-};
-
-// export const metadata = getMetadata("/");
+export const metadata: Metadata = baseMetadata;
 
 export default function RootLayout({
   children,
@@ -84,7 +79,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ReactLenis root>
-              {/* <CatCursor /> */}
+              <CatCursor />
               <MaxWidthWrapper>
                 <SiteHeader />
                 <MaxWidthWrapperContainer>{children}</MaxWidthWrapperContainer>

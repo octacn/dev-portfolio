@@ -1,4 +1,11 @@
 import PageHeader from "@/components/page-header";
+import { generatePageMetadata } from "@/lib/metadata";
+
+export const metadata = generatePageMetadata({
+  title: "Resume",
+  description: "View my professional resume, work experience, education, skills, and qualifications as a Full Stack Developer.",
+  path: "/resume",
+});
 
 export default function Page() {
   return (

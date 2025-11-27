@@ -30,14 +30,14 @@ export const iconStack = z.enum([
   "tailwind",
   "vercel",
   "javascript",
-"prisma",
-  "stripe", 
+  "prisma",
+  "stripe",
   "zod",
-"shadcn",
+  "shadcn",
 
   "twitter",
   "instagram",
-  "linkedin"
+  "linkedin",
 ]);
 
 export const projectItemSchema = z.object({
@@ -47,7 +47,7 @@ export const projectItemSchema = z.object({
   learning: z.array(z.string()),
   techstack: z.array(iconStack),
   preview: z.string(),
-  github: z.string(),
+  github: z.string().optional(),
   timeline: z.string(),
   teamsize: z.string(),
   role: techCategory,

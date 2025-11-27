@@ -5,6 +5,13 @@ import Container from "@/components/container";
 import GithubActivity from "@/components/github-activity";
 import SocialMedia from "@/components/social-media";
 import SpotifyActivity from "@/components/spotify-activity";
+import { generatePageMetadata } from "@/lib/metadata";
+
+export const metadata = generatePageMetadata({
+  title: "Home",
+  description: "Full Stack Developer specializing in Next.js, React, TypeScript, and modern web development. Explore my portfolio, projects, and professional experience.",
+  path: "/",
+});
 
 export default function Home() {
   return (

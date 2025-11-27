@@ -391,7 +391,7 @@ export const projects: Project["items"] = [
     tech: "frontend",
   },
   /**
-   * @project 13. shadwui-v2
+   * @project 13. ui-v2
    */
   {
     name: "ui-v2",
@@ -461,6 +461,36 @@ export const projects: Project["items"] = [
     techstack: ["react", "tailwind", "javascript"],
     category: "web",
     tech: "frontend",
+  },
+  /**
+   * @project 16. terminal-portfolio
+   */
+  {
+    name: "terminal-portfolio",
+    description:
+      "A terminal-inspired interactive developer portfolio that replicates a real command-line experience on the web. Users can explore skills, projects, and contact information by typing commands like in a Linux shell environment. Designed to stand out with a hacker-style UI and smooth terminal animations.",
+    challenge: [
+      "Simulating a real terminal experience with accurate command behavior in the browser.",
+      "Handling dynamic command parsing and output rendering efficiently.",
+      "Ensuring accessibility and responsiveness despite a non-traditional UI layout.",
+      "Optimizing performance while rendering command history and animations.",
+    ],
+    learning: [
+      "Built deep understanding of JavaScript event handling and state management.",
+      "Learned how to design a fully interactive UI using keyboard-driven input systems.",
+      "Improved skills in Next.js routing and component architecture.",
+      "Gained experience in creating custom animations using Tailwind and CSS transitions.",
+    ],
+    role: "full stack",
+    preview: "https://term.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/terminal-portfolio",
+    timeline: "2023",
+    teamsize: "1",
+    functionality: "All Systems Operational",
+    status: "completed",
+    techstack: ["nextjs", "react", "tailwind", "typescript", "vercel"],
+    category: "web",
+    tech: "full stack",
   },
   /**
    * @project 16. zee-movie-hub

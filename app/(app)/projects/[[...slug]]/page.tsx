@@ -13,10 +13,47 @@ import ProjectCopyButton from "@/components/project-copy-button";
 import { absoluteUrl } from "@/lib/utils";
 import { getAllProjectNames, randomizer } from "@/lib/randomizer";
 import ProjectPage from "@/components/_components/project-page";
+import { generatePageMetadata } from "@/lib/metadata";
+import { Metadata } from "next";
 
 export const revalidate = false;
 export const dynamic = "force-static";
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug?: string[] }>;
+}): Promise<Metadata> {
+  const slug = (await params).slug;
+  const page = source.getPage(slug);
+  const name = slug?.join("/") || "";
+
+  if (name === "") {
+    return generatePageMetadata({
+      title: "Projects",
+      description: "Explore my portfolio of web development projects built with Next.js, React, TypeScript, and modern technologies.",
+      path: "/projects",
+    });
+  }
+
+  if (!page) {
+    return generatePageMetadata({
+      title: "Project Not Found",
+      description: "The requested project could not be found.",
+      path: `/projects/${name}`,
+      noIndex: true,
+    });
+  }
+
+  const doc = page.data;
+  
+  return generatePageMetadata({
+    title: doc.title || name,
+    description: doc.description || `View details about ${name} project - a full stack web application showcasing modern development practices.`,
+    path: `/projects/${name}`,
+  });
+}
 
 export default async function Page({
   params,

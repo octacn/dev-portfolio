@@ -1,5 +1,12 @@
 import ContactForm from "@/components/contact-form";
 import PageHeader from "@/components/page-header";
+import { generatePageMetadata } from "@/lib/metadata";
+
+export const metadata = generatePageMetadata({
+  title: "Contact",
+  description: "Get in touch with me for collaboration, project inquiries, or just to say hello. I'm always open to discussing new opportunities.",
+  path: "/contact",
+});
 
 export default function Page() {
   return (
