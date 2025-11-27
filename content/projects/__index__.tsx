@@ -175,56 +175,39 @@ export const Index: Record<string, any> = {
     "category": "web",
     "tech": "full stack"
   },
-  "shadwui-v1": {
-    "name": "shadwui-v1",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
-    "preview": "https://case-cobra.sahilkumardev.com",
+  "ui-v1": {
+    "name": "ui-v1",
+    "description": "A modern, copy-paste UI component library built to accelerate frontend development. ShadwUI provides production-ready components with clean design and reusable patterns using Tailwind CSS and Shadcn UI. Designed for developers who want speed, consistency, and scalability in building web interfaces.",
+    "challenge": ["Creating highly reusable UI components with consistent styling.","Maintaining accessibility and responsive design across all components.","Ensuring compatibility with different Next.js configurations.","Managing design system consistency without a full UI framework.","Balancing design flexibility with structured component patterns."],
+    "learning": ["Built deep understanding of design systems and reusable component architecture.","Improved mastery of Tailwind CSS utility-first styling patterns.","Learned how to scale UI libraries with proper folder structures and naming conventions.","Gained experience in component documentation strategy.","Strengthened TypeScript usage for safer UI development."],
+    "techstack": ["nextjs","react","typescript","tailwind","shadcn"],
+    "preview": "https://ui-v1.sahilkumardev.com",
     "img": undefined, // its is optional
-    "github": "https://github.com/sahilkumardev/dev-portfolio",
-    "timeline": "2023",
+    "github": "https://github.com/sahilkumardev/shadwui",
+    "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "full stack",
+    "role": "frontend",
     "status": "completed",
     "category": "web",
-    "tech": "full stack"
+    "tech": "frontend"
   },
-  "shadwui-v2": {
-    "name": "shadwui-v2",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
-    "preview": "https://case-cobra.sahilkumardev.com",
+  "ui-v2": {
+    "name": "ui-v2",
+    "description": "ShadwUI v2 is a modern, open-source UI components library built to help developers design and ship faster. It provides reusable, responsive, and accessible components using Tailwind CSS and ShadCN UI, optimized for Next.js applications. The project focuses on speed, simplicity, and developer experience with clean code and copy-paste ready components.",
+    "challenge": ["Designing a scalable component system that feels simple but powerful.","Maintaining design consistency across dozens of reusable components.","Ensuring components remain responsive across all screen sizes.","Handling theme switching and dark-mode compatibility.","Keeping performance optimized with minimal CSS and fast rendering.","Structuring the project for long-term maintainability."],
+    "learning": ["Built a reusable design system using Tailwind and ShadCN UI.","Strengthened React component architecture and prop patterns.","Improved performance tuning in Next.js apps.","Learned scalable folder structure for component libraries.","Implemented dark mode using Tailwind and theme providers.","Improved documentation writing and developer experience design."],
+    "techstack": ["nextjs","react","typescript","tailwind","shadcn","vercel"],
+    "preview": "https://ui-v2.sahilkumardev.com",
     "img": undefined, // its is optional
-    "github": "https://github.com/sahilkumardev/dev-portfolio",
-    "timeline": "2023",
+    "github": "https://github.com/sahilkumardev/shadwui-v2",
+    "timeline": "2024",
     "teamsize": "1",
     "functionality": "All Systems Operational",
     "role": "full stack",
     "status": "completed",
     "category": "web",
-    "tech": "full stack"
-  },
-  "shadwui-v3": {
-    "name": "shadwui-v3",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
-    "preview": "https://case-cobra.sahilkumardev.com",
-    "img": undefined, // its is optional
-    "github": "https://github.com/sahilkumardev/dev-portfolio",
-    "timeline": "2023",
-    "teamsize": "1",
-    "functionality": "All Systems Operational",
-    "role": "full stack",
-    "status": "completed",
-    "category": "web",
-    "tech": "full stack"
+    "tech": "frontend"
   },
   "tempratureio": {
     "name": "tempratureio",
