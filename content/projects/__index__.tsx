@@ -109,20 +109,20 @@ export const Index: Record<string, any> = {
   },
   "classic-portfolio": {
     "name": "classic-portfolio",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
+    "description": "A classic-style personal portfolio website designed to showcase my skills, services, and contact details with a clean and professional layout. The website focuses on simplicity, smooth navigation, and a strong personal brand presence using a minimal UI design.",
+    "challenge": ["Designing a clean layout while keeping the UI minimal and attractive.","Maintaining consistent spacing, fonts, and color usage across pages.","Optimizing responsive behavior for mobile and tablet devices.","Structuring content for clarity and easy navigation."],
+    "learning": ["Learned how to structure a personal portfolio for better user experience.","Improved responsive design techniques using CSS media queries and utilities.","Gained better understanding of layout composition and typography hierarchy.","Improved frontend debugging and browser testing skills."],
+    "techstack": ["react","tailwind","javascript"],
     "preview": "https://classic.sahilkumardev.com",
     "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/classic-portfolio",
     "timeline": "2023",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "full stack",
+    "role": "frontend",
     "status": "completed",
     "category": "web",
-    "tech": "full stack"
+    "tech": "frontend"
   },
   "essence-portfolio": {
     "name": "essence-portfolio",

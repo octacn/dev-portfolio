@@ -223,28 +223,31 @@ export const projects: Project["items"] = [
   {
     name: "classic-portfolio",
     description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
+      "A classic-style personal portfolio website designed to showcase my skills, services, and contact details with a clean and professional layout. The website focuses on simplicity, smooth navigation, and a strong personal brand presence using a minimal UI design.",
     challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
+      "Designing a clean layout while keeping the UI minimal and attractive.",
+      "Maintaining consistent spacing, fonts, and color usage across pages.",
+      "Optimizing responsive behavior for mobile and tablet devices.",
+      "Structuring content for clarity and easy navigation.",
     ],
     learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
+      "Learned how to structure a personal portfolio for better user experience.",
+      "Improved responsive design techniques using CSS media queries and utilities.",
+      "Gained better understanding of layout composition and typography hierarchy.",
+      "Improved frontend debugging and browser testing skills.",
     ],
-    role: "full stack",
+    role: "frontend",
     preview: "https://classic.sahilkumardev.com",
     github: "https://github.com/sahilkumardev/classic-portfolio",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
     status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
+    techstack: ["react", "tailwind", "javascript"],
     category: "web",
-    tech: "full stack",
+    tech: "frontend",
   },
+  
   /**
    * @project 8. essence-portfolio
    */
