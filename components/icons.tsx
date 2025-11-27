@@ -565,4 +565,27 @@ export const Icons: Record<IconStack, React.FC<IconProps>> = {
       />
     </svg>
   ),
+  vercel: (props: IconProps) => (
+    <svg
+      viewBox="-64 -64 384.00 384.00"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g strokeWidth="0">
+        <rect
+          x="-64"
+          y="-64"
+          width="384.00"
+          height="384.00"
+          rx="192"
+          fill="#ffffff"
+          strokeWidth="0"
+        />
+      </g>
+      <g strokeLinecap="round" strokeLinejoin="round" />
+      <g>
+        <polygon fill="#000000" points="128 0 256 221.705007 0 221.705007" />
+      </g>
+    </svg>
+  ),
 };

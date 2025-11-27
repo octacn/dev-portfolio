@@ -47,31 +47,40 @@ export const projects: Project["items"] = [
   {
     name: "axis-buddy",
     description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
+      "Axis Buddy is a digital agency website built to showcase professional services such as UI/UX design, web development, branding, and video editing. The platform focuses on clean visuals, clarity of services, and lead generation with a strong call-to-action flow for client inquiries. It is optimized for speed, responsiveness, and modern user experience across devices.",
     challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
+      "Designing a professional agency layout that builds trust and authority.",
+      "Creating a responsive UI that works seamlessly across mobile, tablet, and desktop.",
+      "Implementing effective call-to-action sections to improve client conversions.",
+      "Optimizing page performance for fast loading and smooth transitions.",
+      "Maintaining consistent branding and visual identity across all sections.",
     ],
     learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
+      "Learned how to structure a service-based agency website for better user flow.",
+      "Improved understanding of responsive UI design using Tailwind CSS.",
+      "Gained experience in SEO-friendly website structure for business platforms.",
+      "Enhanced skills in performance optimization in Next.js.",
+      "Practiced applying real-world design principles for client-focused layouts.",
     ],
-    role: "full stack",
+    role: "Full Stack Developer",
     preview: "https://axisbuddy.com",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
-    timeline: "2023",
+    github: "https://github.com/sahilkumardev/axis-buddy",
+    timeline: "2024",
     teamsize: "1",
     functionality: "All Systems Operational",
     status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
+    techstack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "tailwind",
+      "vercel",
+      "mongodb",
+    ],
     category: "web",
     tech: "full stack",
   },
 
-
-  
   /**
    * @project 3. bento-portfolio
    */

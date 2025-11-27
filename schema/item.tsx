@@ -28,6 +28,7 @@ export const iconStack = z.enum([
   "plus",
   "nextauth",
   "tailwind",
+  "vercel",
 
   "twitter",
   "instagram",
