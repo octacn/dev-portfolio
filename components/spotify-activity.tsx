@@ -16,8 +16,20 @@ export default function SpotifyActivity() {
     getProgressPercentage,
     getCurrentProgressMs,
     formatTime,
+    isOffline,
     lastPlayed,
   } = useSpotify();
+
+  if (isOffline) {
+    return (
+      <section className="bg-surface w-full rounded-2xl border flex flex-col items-center justify-center relative h-28">
+        <h1 className="text-app text-2xl font-cursive">Whoops !!</h1>
+        <p className="font-mono text-lg capitalize font-light tracking-wider">
+          slow or no internet Connection
+        </p>
+      </section>
+    );
+  }
 
   if (isLoading) {
     return (

@@ -10,6 +10,7 @@ interface UseSpotifyReturn {
   currentProgress: number;
   isPlaying: boolean;
   currentTrack: SpotifyApiResponse["track"] | null;
+  isOffline: boolean;
   getProgressPercentage: () => number;
   getCurrentProgressMs: () => number;
   formatTime: (ms: number) => string;
@@ -37,6 +38,7 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
   );
   const [currentProgress, setCurrentProgress] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isOffline, setIsOffline] = React.useState(!navigator.onLine);
 
   const formatTime = React.useCallback((ms: number): string => {
     const totalSeconds = Math.floor(ms / 1000);
@@ -59,6 +61,16 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
 
   const fetchTrack = React.useCallback(async () => {
     if (!enabled) return;
+
+    // Check internet connectivity
+    if (!navigator.onLine) {
+      console.log("No internet connection available");
+      setIsOffline(true);
+      setIsLoading(false);
+      return;
+    }
+    
+    setIsOffline(false);
 
     try {
       setIsLoading(true);
@@ -143,6 +155,20 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
     setCurrentProgress(0);
   }, [trackData?.track?.item?.id]);
 
+  // Listen for online/offline events
+  React.useEffect(() => {
+    const handleOnline = () => setIsOffline(false);
+    const handleOffline = () => setIsOffline(true);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
   return {
     trackData,
     lastPlayed,
@@ -150,6 +176,7 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
     currentProgress,
     isPlaying: trackData?.track?.is_playing || false,
     currentTrack: trackData?.track || lastPlayed?.track || null,
+    isOffline,
     getProgressPercentage,
     getCurrentProgressMs,
     formatTime,
