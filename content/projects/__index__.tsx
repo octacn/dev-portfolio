@@ -228,11 +228,11 @@ export const Index: Record<string, any> = {
   },
   "tempratureio": {
     "name": "tempratureio",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
-    "preview": "https://temperatureio.sahilkumardev.com",
+    "description": "A clean and simple temperature and weather-checking web app that allows users to search any city and instantly view real-time temperature data. Built with a fast and minimal frontend architecture, focused on usability, responsiveness, and smooth user interaction.",
+    "challenge": ["Integrating a third-party weather API and handling dynamic responses.","Managing loading states and error handling for invalid city searches.","Designing a minimal UI that remains clear across all screen sizes.","Ensuring fast data fetches and UI updates without lag."],
+    "learning": ["Learned how to consume REST APIs from a frontend application.","Improved understanding of asynchronous JavaScript (fetch, async/await).","Built experience in handling API errors and edge cases properly.","Strengthened responsive design and layout skills.","Practiced structuring real-world frontend projects efficiently."],
+    "techstack": ["react","tailwind","javascript"],
+    "preview": "https://temperatureio.netlify.app",
     "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/temperatureio",
     "timeline": "2023",
@@ -241,14 +241,14 @@ export const Index: Record<string, any> = {
     "role": "full stack",
     "status": "completed",
     "category": "web",
-    "tech": "full stack"
+    "tech": "frontend"
   },
   "zee-movie-hub": {
     "name": "zee-movie-hub",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
+    "description": "A modern movie discovery web application that allows users to explore trending movies, browse by category, and view detailed information such as ratings, release dates, and descriptions. The app focuses on fast performance, clean UI, and dynamic content loading for a smooth browsing experience.",
+    "challenge": ["Integrating third-party movie APIs and handling inconsistent data formats.","Maintaining fast load times while displaying dynamic movie content.","Designing a clean and responsive layout for multiple screen sizes.","Managing state efficiently for filtering, searching, and pagination."],
+    "learning": ["Learned how to integrate external APIs in a Next.js application.","Improved understanding of dynamic routing and server-side rendering.","Gained experience in building reusable UI components using Tailwind CSS.","Understood performance optimization using lazy loading and component splitting.","Strengthened debugging skills while handling async data and API failures."],
+    "techstack": ["nextjs","react","typescript","tailwind"],
     "preview": "https://zeemoviehub.sahilkumardev.com",
     "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/zeemovieshub",
