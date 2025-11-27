@@ -92,20 +92,20 @@ export const Index: Record<string, any> = {
   },
   "chrome-page": {
     "name": "chrome-page",
-    "description": "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    "challenge": ["Designing a responsive layout that looks great on all devices.","Implementing interactive elements to showcase projects effectively.","Optimizing performance for fast load times."],
-    "learning": ["Gained experience with Next.js and its features for building static and dynamic web applications.","Improved skills in Tailwind CSS for rapid UI development.","Learned best practices for portfolio website design and user experience."],
-    "techstack": ["nextjs","react","mongodb","typescript","claude"],
+    "description": "A custom Chrome new tab landing page designed for productivity and minimalism. This project replaces the default new tab with a clean, fast, and visually pleasing dashboard featuring quick access links, time/date display, and a modern UI. Built as a frontend-focused project with performance and simplicity in mind.",
+    "challenge": ["Designing a clean interface that feels lightweight and modern.","Making the UI responsive across all screen sizes.","Optimizing performance for instant load on every new tab.","Maintaining aesthetic balance between design and usability.","Handling asset optimization and UI animations smoothly."],
+    "learning": ["Improved understanding of modern UI layout systems using Tailwind CSS.","Learned how to structure a frontend project for scalability in Next.js.","Gained experience in creating Chrome-optimized UIs.","Learned performance optimization techniques for static pages.","Improved typography and color system design skills."],
+    "techstack": ["react","tailwind","typescript"],
     "preview": "https://chromepage.sahilkumardev.com",
     "img": undefined, // its is optional
     "github": "https://github.com/sahilkumardev/chrome-landing-page",
     "timeline": "2023",
     "teamsize": "1",
     "functionality": "All Systems Operational",
-    "role": "full stack",
+    "role": "frontend",
     "status": "completed",
     "category": "web",
-    "tech": "full stack"
+    "tech": "frontend"
   },
   "classic-portfolio": {
     "name": "classic-portfolio",

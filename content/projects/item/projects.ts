@@ -143,77 +143,80 @@ export const projects: Project["items"] = [
     category: "web",
     tech: "frontend",
   },
-
-
   /**
    * @project 5. case-cobra
    */
-{
-  "name": "case-cobra",
-  "description": "CaseCobra is a modern custom phone case e-commerce website where users can upload their own designs and order personalized mobile covers. It provides a smooth design experience, real-time previews, and a clean checkout flow with responsive UI and performance-focused architecture.",
-  "challenge": [
-    "Implementing image upload and preview functionality with performance optimization.",
-    "Handling responsive layout for multiple device sizes and screen resolutions.",
-    "Managing component reusability and UI consistency across pages.",
-    "Optimizing page load speed for image-heavy pages.",
-    "Creating a smooth user flow from customization to checkout."
-  ],
-  "learning": [
-    "Learned how to manage complex UI states in React and Next.js.",
-    "Improved understanding of image optimization and lazy loading techniques.",
-    "Strengthened frontend architecture using reusable components.",
-    "Gained experience in building real-world e-commerce flows.",
-    "Learned how to structure scalable frontend projects."
-  ],
-  "role": "full stack",
-  "preview": "https://case-cobra.sahilkumardev.com",
-  "github": "https://github.com/sahilkumardev/case-cobra",
-  "timeline": "2024",
-  "teamsize": "1",
-  "functionality": "All Systems Operational",
-  "status": "completed",
-  "techstack": [
-    "nextjs",
-    "react",
-    "typescript",
-    "tailwind",
-    "prisma", 
-    "stripe",
-    "zod",
-    "shadcn"
-  ],
-  "category": "web",
-  "tech": "full stack"
-},
-
+  {
+    name: "case-cobra",
+    description:
+      "CaseCobra is a modern custom phone case e-commerce website where users can upload their own designs and order personalized mobile covers. It provides a smooth design experience, real-time previews, and a clean checkout flow with responsive UI and performance-focused architecture.",
+    challenge: [
+      "Implementing image upload and preview functionality with performance optimization.",
+      "Handling responsive layout for multiple device sizes and screen resolutions.",
+      "Managing component reusability and UI consistency across pages.",
+      "Optimizing page load speed for image-heavy pages.",
+      "Creating a smooth user flow from customization to checkout.",
+    ],
+    learning: [
+      "Learned how to manage complex UI states in React and Next.js.",
+      "Improved understanding of image optimization and lazy loading techniques.",
+      "Strengthened frontend architecture using reusable components.",
+      "Gained experience in building real-world e-commerce flows.",
+      "Learned how to structure scalable frontend projects.",
+    ],
+    role: "full stack",
+    preview: "https://case-cobra.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/case-cobra",
+    timeline: "2024",
+    teamsize: "1",
+    functionality: "All Systems Operational",
+    status: "completed",
+    techstack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "tailwind",
+      "prisma",
+      "stripe",
+      "zod",
+      "shadcn",
+    ],
+    category: "web",
+    tech: "full stack",
+  },
   /**
    * @project 6. chrome-page
    */
   {
     name: "chrome-page",
     description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
+      "A custom Chrome new tab landing page designed for productivity and minimalism. This project replaces the default new tab with a clean, fast, and visually pleasing dashboard featuring quick access links, time/date display, and a modern UI. Built as a frontend-focused project with performance and simplicity in mind.",
     challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
+      "Designing a clean interface that feels lightweight and modern.",
+      "Making the UI responsive across all screen sizes.",
+      "Optimizing performance for instant load on every new tab.",
+      "Maintaining aesthetic balance between design and usability.",
+      "Handling asset optimization and UI animations smoothly.",
     ],
     learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
+      "Improved understanding of modern UI layout systems using Tailwind CSS.",
+      "Learned how to structure a frontend project for scalability in Next.js.",
+      "Gained experience in creating Chrome-optimized UIs.",
+      "Learned performance optimization techniques for static pages.",
+      "Improved typography and color system design skills.",
     ],
-    role: "full stack",
+    role: "frontend",
     preview: "https://chromepage.sahilkumardev.com",
     github: "https://github.com/sahilkumardev/chrome-landing-page",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
     status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
+    techstack: ["react", "tailwind", "typescript"],
     category: "web",
-    tech: "full stack",
+    tech: "frontend",
   },
+
   /**
    * @project 7. classic-portfolio
    */
