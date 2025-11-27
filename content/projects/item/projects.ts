@@ -247,62 +247,37 @@ export const projects: Project["items"] = [
     category: "web",
     tech: "frontend",
   },
-  
   /**
    * @project 8. essence-portfolio
    */
   {
     name: "essence-portfolio",
     description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
+      "A modern personal developer portfolio website designed to present projects, skills, and professional experience in a clean and visually appealing layout. Built with Next.js, TypeScript, and Tailwind CSS, the site focuses on performance, accessibility, and smooth user interaction with a strong emphasis on UI/UX design and responsiveness.",
     challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
+      "Creating a minimal yet visually engaging layout that represents a strong personal brand.",
+      "Making the design fully responsive across mobile, tablet, and desktop screens.",
+      "Organizing content in a way that keeps the portfolio both professional and easy to navigate.",
+      "Optimizing animations and visual effects without hurting performance.",
+      "Maintaining consistency in design system and component styling.",
     ],
     learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
+      "Improved understanding of Next.js routing and component structuring.",
+      "Learned how to use Tailwind CSS for scalable and maintainable UI design.",
+      "Gained experience in building accessible user interfaces.",
+      "Strengthened skills in responsive layout design using Flex box and Grid.",
+      "Improved code organization for reusable UI components.",
     ],
-    role: "full stack",
+    role: "frontend",
     preview: "https://essence.sahilkumardev.com",
     github: "https://github.com/sahilkumardev/essence-portfolio",
-    timeline: "2023",
+    timeline: "2024",
     teamsize: "1",
     functionality: "All Systems Operational",
     status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
+    techstack: ["nextjs", "react", "typescript", "tailwind"],
     category: "web",
-    tech: "full stack",
-  },
-  /**
-   * @project 9. farmer-customer
-   */
-  {
-    name: "farmer-customer",
-    description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
-    ],
-    learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
-    ],
-    role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
-    timeline: "2023",
-    teamsize: "1",
-    functionality: "All Systems Operational",
-    status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
-    category: "web",
-    tech: "full stack",
+    tech: "frontend",
   },
   /**
    * @project 10. feedbackify
@@ -310,73 +285,82 @@ export const projects: Project["items"] = [
   {
     name: "feedbackify",
     description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
+      "A lightweight frontend web app that collects and displays user feedback through a clean and interactive interface. Built to deliver a smooth user experience with modern UI patterns and responsive design.",
     challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
+      "Designing a simple yet engaging feedback submission interface.",
+      "Handling client-side form validation without backend support.",
+      "Building a responsive layout for all screen sizes.",
+      "Creating reusable UI components for consistency.",
+      "Managing user interactions efficiently with React state.",
     ],
     learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
+      "Learned how to build user-focused interfaces with React and Next.js.",
+      "Improved skills in Tailwind CSS for layout and component styling.",
+      "Practiced accessibility and form UX best practices.",
+      "Enhanced understanding of component-based architecture.",
+      "Improved frontend performance and code organization.",
     ],
-    role: "full stack",
+    role: "frontend",
     preview: "https://feedbackify.sahilkumardev.com",
     github: "https://github.com/sahilkumardev/feedbackify",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
     status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
+    techstack: [
+      "nextjs",
+      "react",
+      "tailwind",
+      "typescript",
+      "mongodb",
+      "nextauth",
+    ],
     category: "web",
-    tech: "full stack",
+    tech: "frontend",
   },
-
-  // https://sahilkumardev.github.io/fashion-store
-  // https://github.com/sahilkumardev/fashion-store
-
-  // https://github.com/sahilkumardev/moncy-dev-clone
-  // https://www.moncy.dev
-
-  // https://github.com/sahilkumardev/music-school
-  // https://musicschool.sahilkumardev.com
-
-  // https://detective-agency.sahilkumardev.com
-  // https://terminal.sahilkumardev.com
-  //
-
-  // https://github.com/sahilkumardev/yt-drew-portfolio
-  // https://sahilkumardev.github.io/yt-drew-portfolio
-
   /**
    * @project 11. my-admit
    */
   {
     name: "my-admit",
     description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
+      "A modern, AI-focused admissions platform UI designed for building, reviewing, and managing university application essays. The project emphasizes a clean user journey for writing assistance, application tracking, and dashboard-based workflows. Built as a frontend showcase of a real-world SaaS interface with interactive sections and conversion-focused design.",
     challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
+      "Designing a product-style interface instead of a traditional portfolio layout.",
+      "Creating UX flows for dashboards, forms, and writing tools without backend logic.",
+      "Maintaining visual consistency across multiple sections and pages.",
+      "Implementing responsive layouts for complex UI components on smaller screens.",
+      "Optimizing animations and UI performance for smooth browsing experience.",
     ],
     learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
+      "Learned how to structure SaaS-style layouts using Next.js routing.",
+      "Improved frontend architecture using reusable components.",
+      "Practiced creating dashboard-style UI and data presentation components.",
+      "Gained experience in building clean UX for form-based applications.",
+      "Improved performance optimization using lazy loading and component splitting.",
     ],
     role: "full stack",
-    preview: "https://myadmit.com",
+    preview: "https://myadmit.ai",
     github: "",
-    timeline: "2023",
+    timeline: "2024",
     teamsize: "1",
     functionality: "All Systems Operational",
     status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
+    techstack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "tailwind",
+      "mongodb",
+      "shadcn",
+      "nextauth",
+      "stripe",
+    ],
     category: "web",
     tech: "full stack",
   },
+
+  
   /**
    * @project 12. shadwui-v1
    */
