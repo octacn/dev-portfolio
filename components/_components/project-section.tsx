@@ -11,7 +11,7 @@ export default async function ProjectSection() {
       <SectionHeader
         title="Projects"
         description="A selection of my recent work"
-        href="#"
+        href="/projects"
       />
       <Container className="grid grid-cols-2 gap-6">
         {randomProjects.map((name) => (

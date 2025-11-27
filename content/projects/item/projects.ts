@@ -216,7 +216,6 @@ export const projects: Project["items"] = [
     category: "web",
     tech: "frontend",
   },
-
   /**
    * @project 7. classic-portfolio
    */
