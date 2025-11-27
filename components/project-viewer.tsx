@@ -70,19 +70,19 @@ function ProjectContent() {
 
   return (
     <article className="mx-auto max-w-4xl">
-      <section className="relative aspect-video overflow-hidden rounded-xl border border-border/30">
+      <section className="relative aspect-video overflow-hidden rounded-xl border border-app/60">
         <Image
           src={`/project/${item.name}-light.png`}
           alt={item.name.replace(/-/g, " ")}
           fill
-          className="object-cover dark:hidden"
+          className="object-cover dark:hidden object-top"
           priority
         />
         <Image
           src={`/project/${item.name}-dark.png`}
           alt={item.name.replace(/-/g, " ")}
           fill
-          className="object-cover hidden dark:block"
+          className="object-cover hidden dark:block object-top"
           priority
         />
       </section>

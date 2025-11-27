@@ -7,29 +7,40 @@ export const projects: Project["items"] = [
   {
     name: "authentication",
     description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
+      "A full-featured user authentication system that enables secure signup, login, and user management. Built with Next.js, MongoDB, and modern security practices, this project focuses on scalable identity management, session handling, and user access control. It provides a centralized authentication solution that can be reused across multiple applications.",
     challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
+      "Implementing secure password hashing and validation.",
+      "Managing user sessions and authentication state across refreshes.",
+      "Integrating third-party login providers (such as Google OAuth).",
+      "Handling protected routes and unauthorized access.",
+      "Deploying securely with environment-specific configurations.",
     ],
     learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
+      "Built end-to-end authentication flows using NextAuth/Auth.js.",
+      "Learned secure credential handling and password encryption techniques.",
+      "Implemented session-based authentication and cookie security.",
+      "Integrated OAuth providers with custom credential authentication.",
+      "Understood real-world authentication architecture in production systems.",
     ],
-    role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
-    timeline: "2023",
+    role: "Full Stack",
+    preview: "https://auth.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/user-authentication",
+    timeline: "2024",
     teamsize: "1",
     functionality: "All Systems Operational",
     status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
+    techstack: [
+      "nextjs",
+      "react",
+      "mongodb",
+      "typescript",
+      "nextauth",
+      "tailwind",
+    ],
     category: "web",
     tech: "full stack",
   },
+
   /**
    * @project 2. axis-buddy
    */
@@ -48,8 +59,7 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
+    preview: "https://axisbuddy.com",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -59,6 +69,9 @@ export const projects: Project["items"] = [
     category: "web",
     tech: "full stack",
   },
+
+
+  
   /**
    * @project 3. bento-portfolio
    */
@@ -77,8 +90,7 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
+    preview: "https://bento.sahilkumardev.com",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -106,8 +118,7 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
+    preview: "https://brainwave.sahilkumardev.com",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -136,7 +147,6 @@ export const projects: Project["items"] = [
     ],
     role: "full stack",
     preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -164,9 +174,8 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
+    preview: "https://chromepage.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/chrome-landing-page",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
@@ -193,9 +202,8 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
+    preview: "https://classic.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/classic-portfolio",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
@@ -222,9 +230,8 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
+    preview: "https://essence.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/essence-portfolio",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
@@ -252,7 +259,6 @@ export const projects: Project["items"] = [
     ],
     role: "full stack",
     preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -280,9 +286,8 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
+    preview: "https://feedbackify.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/feedbackify",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
@@ -291,6 +296,23 @@ export const projects: Project["items"] = [
     category: "web",
     tech: "full stack",
   },
+
+  // https://sahilkumardev.github.io/fashion-store
+  // https://github.com/sahilkumardev/fashion-store
+
+  // https://github.com/sahilkumardev/moncy-dev-clone
+  // https://www.moncy.dev
+
+  // https://github.com/sahilkumardev/music-school
+  // https://musicschool.sahilkumardev.com
+
+  // https://detective-agency.sahilkumardev.com
+  // https://terminal.sahilkumardev.com
+  //
+
+  // https://github.com/sahilkumardev/yt-drew-portfolio
+  // https://sahilkumardev.github.io/yt-drew-portfolio
+
   /**
    * @project 11. my-admit
    */
@@ -309,9 +331,8 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
+    preview: "https://myadmit.com",
+    github: "",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
@@ -339,7 +360,6 @@ export const projects: Project["items"] = [
     ],
     role: "full stack",
     preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -368,7 +388,6 @@ export const projects: Project["items"] = [
     ],
     role: "full stack",
     preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -397,7 +416,6 @@ export const projects: Project["items"] = [
     ],
     role: "full stack",
     preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
     github: "https://github.com/sahilkumardev/dev-portfolio",
     timeline: "2023",
     teamsize: "1",
@@ -425,9 +443,8 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
+    preview: "https://temperatureio.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/temperatureio",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",
@@ -454,9 +471,8 @@ export const projects: Project["items"] = [
       "Learned best practices for portfolio website design and user experience.",
     ],
     role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    img: "",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
+    preview: "https://zeemoviehub.sahilkumardev.com",
+    github: "https://github.com/sahilkumardev/zeemovieshub",
     timeline: "2023",
     teamsize: "1",
     functionality: "All Systems Operational",

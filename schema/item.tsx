@@ -26,6 +26,8 @@ export const iconStack = z.enum([
   "markdown",
   "v0",
   "plus",
+  "nextauth",
+  "tailwind",
 
   "twitter",
   "instagram",
@@ -39,7 +41,6 @@ export const projectItemSchema = z.object({
   learning: z.array(z.string()),
   techstack: z.array(iconStack),
   preview: z.string(),
-  img: z.string().optional(),
   github: z.string(),
   timeline: z.string(),
   teamsize: z.string(),

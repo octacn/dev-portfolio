@@ -31,36 +31,44 @@ async function captureScreenshots() {
   });
 
   for (const website of websites) {
-    const pageUrl = website.website;
+    try {
+      const pageUrl = website.website;
+      const page = await browser.newPage();
 
-    const page = await browser.newPage();
-    await page.goto(pageUrl, {
-      waitUntil: "networkidle2",
-    });
+      await page.goto(pageUrl, {
+        waitUntil: "domcontentloaded",
+        timeout: 60000,
+      });
 
-    console.log(`- Capturing ${website.id}...`);
+      console.log(`- Capturing ${website.id}...`);
 
-    for (const theme of ["light", "dark"]) {
-      const screenshotPath = path.join(
-        SCREENSHOT_PATH,
-        `${website.id}${theme === "dark" ? "-dark" : "-light"}.png`
-      );
+      for (const theme of ["light", "dark"]) {
+        const screenshotPath = path.join(
+          SCREENSHOT_PATH,
+          `${website.id}${theme === "dark" ? "-dark" : "-light"}.png`
+        );
 
-      if (existsSync(screenshotPath)) {
-        continue;
+        if (existsSync(screenshotPath)) continue;
+
+        await page.evaluate((currentTheme) => {
+          localStorage.setItem("theme", currentTheme);
+        }, theme);
+
+        await page.reload({
+          waitUntil: "domcontentloaded",
+          timeout: 60000,
+        });
+
+        console.log(`⏳ Waiting 60s for ${website.id} (${theme})`);
+        await new Promise((resolve) => setTimeout(resolve, 60000)); // ✅ REPLACEMENT
+
+        await page.screenshot({ path: screenshotPath as `${string}.png` });
       }
 
-      // Set theme and reload page
-      await page.evaluate((currentTheme) => {
-        localStorage.setItem("theme", currentTheme);
-      }, theme);
-
-      await page.reload({ waitUntil: "networkidle2" });
-
-      await page.screenshot({ path: screenshotPath as `${string}.png` });
+      await page.close();
+    } catch {
+      console.log(`❌ Failed: ${website.id}`);
     }
-
-    await page.close();
   }
 
   await browser.close();
