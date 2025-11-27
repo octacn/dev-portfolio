@@ -148,31 +148,44 @@ export const projects: Project["items"] = [
   /**
    * @project 5. case-cobra
    */
-  {
-    name: "case-cobra",
-    description:
-      "My personal developer portfolio website showcasing my projects, skills, and experience. Built with Next.js and Tailwind CSS. Technologies Used: Next.js React Tailwind CSS TypeScript Features: Responsive design for optimal viewing on all devices Interactive project showcase with links to GitHub repositories",
-    challenge: [
-      "Designing a responsive layout that looks great on all devices.",
-      "Implementing interactive elements to showcase projects effectively.",
-      "Optimizing performance for fast load times.",
-    ],
-    learning: [
-      "Gained experience with Next.js and its features for building static and dynamic web applications.",
-      "Improved skills in Tailwind CSS for rapid UI development.",
-      "Learned best practices for portfolio website design and user experience.",
-    ],
-    role: "full stack",
-    preview: "https://case-cobra.sahilkumardev.com",
-    github: "https://github.com/sahilkumardev/dev-portfolio",
-    timeline: "2023",
-    teamsize: "1",
-    functionality: "All Systems Operational",
-    status: "completed",
-    techstack: ["nextjs", "react", "mongodb", "typescript", "claude"],
-    category: "web",
-    tech: "full stack",
-  },
+{
+  "name": "case-cobra",
+  "description": "CaseCobra is a modern custom phone case e-commerce website where users can upload their own designs and order personalized mobile covers. It provides a smooth design experience, real-time previews, and a clean checkout flow with responsive UI and performance-focused architecture.",
+  "challenge": [
+    "Implementing image upload and preview functionality with performance optimization.",
+    "Handling responsive layout for multiple device sizes and screen resolutions.",
+    "Managing component reusability and UI consistency across pages.",
+    "Optimizing page load speed for image-heavy pages.",
+    "Creating a smooth user flow from customization to checkout."
+  ],
+  "learning": [
+    "Learned how to manage complex UI states in React and Next.js.",
+    "Improved understanding of image optimization and lazy loading techniques.",
+    "Strengthened frontend architecture using reusable components.",
+    "Gained experience in building real-world e-commerce flows.",
+    "Learned how to structure scalable frontend projects."
+  ],
+  "role": "full stack",
+  "preview": "https://case-cobra.sahilkumardev.com",
+  "github": "https://github.com/sahilkumardev/case-cobra",
+  "timeline": "2024",
+  "teamsize": "1",
+  "functionality": "All Systems Operational",
+  "status": "completed",
+  "techstack": [
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwind",
+    "prisma", 
+    "stripe",
+    "zod",
+    "shadcn"
+  ],
+  "category": "web",
+  "tech": "full stack"
+},
+
   /**
    * @project 6. chrome-page
    */
