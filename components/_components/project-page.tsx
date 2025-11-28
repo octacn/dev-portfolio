@@ -10,7 +10,7 @@ export default function ProjectPage({ names }: { names: string[] }) {
         description="A showcase of my work and accomplishments."
       />
 
-      <Container className="grid grid-cols-2 gap-6">
+      <Container className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {names.map((name) => (
           <ProjectCardDisplay key={name} name={name} />
         ))}

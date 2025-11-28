@@ -8,7 +8,7 @@ export const siteConfig = {
   social: {
     twitter: "https://twitter.com/sahilkumardev",
     github: "https://github.com/sahilkumardev",
-    linkedin: "https://linkedin.com/in/sahil-kumar-dev",
+    linkedin: "https://linkedin.com/in/sahilkumardev",
     discord: "https://discord.gg/X5TSMHqc",
     instagram: "https://instagram.com/sahilkumardev",
   },
@@ -88,13 +88,18 @@ export const socialItems = [
     icon: Icons.twitter,
   },
   {
-    href: siteConfig.social.github,
-    label: "github",
+    href: siteConfig.social.instagram,
+    label: "instagram",
     icon: Icons.instagram,
   },
   {
     href: siteConfig.social.linkedin,
     label: "linkedin",
     icon: Icons.linkedin,
+  },
+   {
+    href: siteConfig.social.github,
+    label: "github",
+    icon: Icons.github,
   },
 ];

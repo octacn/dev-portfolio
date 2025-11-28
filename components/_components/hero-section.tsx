@@ -30,7 +30,7 @@ export default function HeroSection() {
   };
 
   return (
-    <Box className="mb-10">
+    <Box className="mb-0 sm:mb-10">
       <section>
         <div className="flex items-center-safe gap-4">
           <div
@@ -48,15 +48,15 @@ export default function HeroSection() {
             <Status />
           </div>
           <div className="font-cursive">
-            <h1 className="text-5xl tracking-wider underline underline-offset-6 decoration-2">
+            <h1 className="text-2xl sm:text-5xl tracking-wider underline underline-offset-6 decoration-2 leading-relaxed">
               hi, i&apos;m Sahilkumardev
             </h1>
-            <p className="text-2xl text-muted-foreground mt-3">
+            <p className="text-base sm:text-2xl text-muted-foreground mt-3">
               Full Stack Developer
             </p>
           </div>
         </div>
-        <div className="mt-6 space-y-6 text-base md:text-lg text-muted-foreground whitespace-pre-wrap font-mono ">
+        <div className="mt-6 space-y-3 sm:space-y-6 text-base md:text-lg text-muted-foreground whitespace-pre-wrap font-mono ">
           <p className="flex flex-wrap gap-y-2 gap-x-1.5">
             {renderDescription()}
           </p>

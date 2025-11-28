@@ -6,9 +6,8 @@ import { Link } from "next-view-transitions";
 
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
-import { Separator } from "@/components/ui/separator";
-import { Icons } from "@/components/icons";
 import ModeToggler from "@/components/mode-toggler";
+import CatHideButton from "@/components/cat-hide-button";
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = React.useState(false);
@@ -37,19 +36,14 @@ export default function SiteHeader() {
           scrolled ? "max-w-2xl" : "max-w-3xl"
         )}
       >
-        <span className="absolute bottom-0 left-5 h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+        <span className="absolute bottom-0 left-5 h-px w-[calc(100%-2.25rem)] bg-linear-to-r from-emerald-400/0 via-emerald-400 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
 
-        <Link href="/" className="hover:cursor-default select-none">
-          <Icons.logo className="size-7.5" />
-          <span className="sr-only">{siteConfig.name}</span>
-        </Link>
-
-        <MainNav items={siteConfig.navItems} />
-
-        <div className="">
-          <Separator orientation="vertical" />
+        <div className="flex gap-2">
+          <CatHideButton />
           <ModeToggler />
         </div>
+
+        <MainNav items={siteConfig.navItems} />
       </div>
     </header>
   );

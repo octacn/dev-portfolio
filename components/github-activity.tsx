@@ -6,14 +6,13 @@ import ActivityCalendar from "react-activity-calendar";
 import { useGithubData } from "@/hooks/github-data";
 import { Loader } from "@/components/loading";
 import { cn } from "@/lib/utils";
-import IdeTracker from "./ide-tracker";
-// import IDETracker from "@/hooks/ide-tracker";
+import IdeTracker from "@/components/ide-tracker";
 
 export default function GithubActivity() {
   const { totalContributions } = useGithubData();
 
   return (
-    <div>
+    <>
       <section className="flex items-center justify-between mb-5">
         <div>
           <h2 className="text-xl tracking-wider">Github Contributions</h2>
@@ -22,11 +21,11 @@ export default function GithubActivity() {
           </p>
         </div>
 
-         <IdeTracker />
+        <IdeTracker />
       </section>
 
       <GithubGraph />
-    </div>
+    </>
   );
 }
 
@@ -38,7 +37,7 @@ function GithubGraph() {
     <section
       className={cn(
         "rounded-lg border border-dashed overflow-hidden flex items-center justify-center",
-        isLoading ? "h-44" : "p-5"
+        isLoading ? "h-44" : "p-3 sm:p-5"
       )}
     >
       {isLoading ? (
@@ -51,6 +50,7 @@ function GithubGraph() {
           fontSize={12}
           colorScheme={theme === "dark" ? "dark" : "light"}
           theme={githubConfigMode}
+          
         />
       )}
     </section>

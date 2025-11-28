@@ -28,7 +28,8 @@ export async function generateMetadata({
   if (name === "") {
     return generatePageMetadata({
       title: "Projects",
-      description: "Explore my portfolio of web development projects built with Next.js, React, TypeScript, and modern technologies.",
+      description:
+        "Explore my portfolio of web development projects built with Next.js, React, TypeScript, and modern technologies.",
       path: "/projects",
     });
   }
@@ -43,10 +44,12 @@ export async function generateMetadata({
   }
 
   const doc = page.data;
-  
+
   return generatePageMetadata({
     title: doc.title || name,
-    description: doc.description || `View details about ${name} project - a full stack web application showcasing modern development practices.`,
+    description:
+      doc.description ||
+      `View details about ${name} project - a full stack web application showcasing modern development practices.`,
     path: `/projects/${name}`,
   });
 }
@@ -85,7 +88,7 @@ export default async function Page({
           <Link href="/projects">
             <Button variant="secondary" size="sm">
               <Icons.arrowLeft />
-              Back to Projects
+              <span className="sr-only sm:not-sr-only">Back to Projects</span>
             </Button>
           </Link>
 
@@ -165,7 +168,7 @@ export default async function Page({
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-8 my-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 my-8">
           {relatedNames.map((name) => (
             <ProjectCardDisplay key={name} name={name} hideImage />
           ))}

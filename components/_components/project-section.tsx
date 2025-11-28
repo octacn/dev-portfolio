@@ -13,7 +13,7 @@ export default async function ProjectSection() {
         description="A selection of my recent work"
         href="/projects"
       />
-      <Container className="grid grid-cols-2 gap-6">
+      <Container className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {randomProjects.map((name) => (
           <ProjectCardDisplay key={name} name={name} />
         ))}

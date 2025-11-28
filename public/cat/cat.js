@@ -92,7 +92,7 @@
   };
 
   function init() {
-    cat.id = "cat";
+    cat.id = "ocat";
     cat.ariaHidden = true;
     cat.style.width = "32px";
     cat.style.height = "32px";
@@ -102,6 +102,10 @@
     cat.style.left = `${catPosX - 16}px`;
     cat.style.top = `${catPosY - 16}px`;
     cat.style.zIndex = 2147483647;
+    
+    // Check initial visibility state from localStorage
+    const isCatHidden = localStorage.getItem("isCatHidden") === "true";
+    cat.style.display = isCatHidden ? "none" : "block";
 
     let catFile = "./cat.gif"
     const curScript = document.currentScript

@@ -49,7 +49,7 @@ export default function CallToAction() {
   return (
     <>
       <Container className="rounded-lg border border-dashed bg-surface p-6 grid place-content-center place-items-center">
-        <p className="text-xl font-mono tracking-wide text-foreground/90 mb-4">
+        <p className="text-xl font-mono tracking-wide text-foreground/90 mb-4 text-center">
           Interested in collaborating or discussing opportunities?
         </p>
         <Button variant={"secondary"} onClick={handleButtonClick}>

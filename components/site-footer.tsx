@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function SiteFooter() {
   return (
-    <footer className="text-sm text-center mb-8">
+    <footer className="text-sm text-center mb-8 mx-5 sm:mx-0">
       <div className="bg-surface rounded-xl border p-6">
         <div className="text-app mb-2">$ start thoughts.md</div>
         <div className="space-y-4">
-          <blockquote className="text-foreground/90 italic text-base font-medium leading-relaxed border-l-2 border-app-secondary pl-4  font-mono">
+          <blockquote className="text-foreground/90 italic text-sm sm:text-base font-medium leading-relaxed border-l-2 border-app-secondary pl-4 font-mono">
             &#34;After Web Developer & UI/UX Designer from Kanpur, blending
             function with aesthetics. I craft clean, intuitive websites that
             tell your brand’s story, solve real problems, and leave lasting

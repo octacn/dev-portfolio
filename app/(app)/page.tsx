@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <HeroSection />
 
-      <Container className="grid grid-cols-2 gap-x-6">
+      <Container className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <SocialMedia />
         <SpotifyActivity />
       </Container>

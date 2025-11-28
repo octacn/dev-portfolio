@@ -15,7 +15,7 @@ export default function Page() {
         description="My professional experience and qualifications."
       />
 
-      <div style={{ height: "130vh" }} className="mb-8">
+      <div className="mb-8 h-[50vh] md:h-[130vh]">
         <iframe
           src="https://drive.google.com/file/d/10k4iubgQsWHtkmKDh3w_aYA42Zq_jzTn/preview"
           title="Resume"

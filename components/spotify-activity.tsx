@@ -22,7 +22,7 @@ export default function SpotifyActivity() {
 
   if (isOffline) {
     return (
-      <section className="bg-surface w-full rounded-2xl border flex flex-col items-center justify-center relative h-28">
+      <section className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
         <h1 className="text-app text-2xl font-cursive">Whoops !!</h1>
         <p className="font-mono text-lg capitalize font-light tracking-wider">
           slow or no internet Connection
@@ -42,9 +42,9 @@ export default function SpotifyActivity() {
   if (!trackData && !lastPlayed) {
     return (
       <section className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
-        <span className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center text-4xl">
+        <div className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center text-4xl">
           🎵
-        </span>
+        </div>
         <div className="w-full flex flex-col justify-center">
           <p className="text-foreground/70 text-sm">No recent activity</p>
           <p className="text-xs text-muted-foreground">
@@ -56,7 +56,7 @@ export default function SpotifyActivity() {
   }
 
   return (
-    <section className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
+    <div className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
       <div className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center">
         {(() => {
           const albumImageUrl =
@@ -127,16 +127,10 @@ export default function SpotifyActivity() {
           </div>
         ) : (
           <div className="flex items-center text-muted-foreground text-xs">
-            <span>
-              {lastPlayed?.played_at
-                ? `Last played: ${new Date(
-                    lastPlayed.played_at
-                  ).toLocaleString()}`
-                : "Not currently playing"}
-            </span>
+            Not currently playing
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 }

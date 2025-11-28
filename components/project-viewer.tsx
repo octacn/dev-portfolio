@@ -149,9 +149,18 @@ function ProjectContent() {
         {item.description}
       </p>
 
-      <div className="grid gap-10 rounded-lg border bg-surface p-4 sm:grid-cols-2 lg:grid-cols-4 my-8">
+      <div className="grid gap-3 sm:gap-10 rounded-lg border bg-surface p-4 grid-cols-2 place-content-center sm:place-content-start place-items-center sm:place-items-start lg:grid-cols-4 my-8 relative">
+        <div className="absolute inset-0 translate-x-1/2 sm:hidden">
+          <div className="border-l h-full" />
+        </div>
+        <div className="absolute inset-0 translate-y-1/2 sm:hidden">
+          <div className="border-t" />
+        </div>
         {statsItems.map((item) => (
-          <div key={item.label}>
+          <div
+            key={item.label}
+            className="flex items-center justify-center flex-col sm:items-start"
+          >
             <h5 className="font-semibold font-mono tracking-wider mb-1 text-muted-foreground">
               {item.label}
             </h5>
@@ -160,7 +169,7 @@ function ProjectContent() {
             </p>
           </div>
         ))}
-        <div>
+        <div className="flex items-center justify-center flex-col sm:items-start">
           <h5 className="font-semibold font-mono tracking-wider mb-1 text-muted-foreground ">
             Status
           </h5>
@@ -265,7 +274,7 @@ function ProjectCard() {
         </div>
       </React.Activity>
 
-      <div className="p-6 pt-5">
+      <div className="p-4 sm:p-6 pt-5">
         <div className="flex items-center justify-between gap-4">
           <h1 className="text-2xl tracking-wide font-medium line-clamp-1 truncate capitalize font-mono">
             {item.name.replace(/-/g, " ")}
@@ -312,8 +321,8 @@ function ProjectCard() {
           })}
         </div>
 
-        <div className="flex justify-between items-center mt-4 text-green-400">
-          <div className="flex items-center gap-2 rounded-md px-2 py-1 text-xs border-green-500/30 border bg-green-500/20">
+        <div className="flex justify-between items-center mt-4 text-green-400 gap-x-2">
+          <div className="flex items-center gap-2 rounded-md px-2 py-1 text-xs border-green-500/30 border bg-green-500/20 truncate">
             <span className="relative inline-flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500/70 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />

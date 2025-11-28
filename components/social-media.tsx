@@ -11,7 +11,7 @@ export default function SocialMedia() {
   };
 
   return (
-    <section className="bg-surface w-full rounded-2xl border p-4 flex flex-col justify-between">
+    <section className="bg-surface w-full rounded-2xl border p-4 flex flex-col justify-between space-y-4 sm:space-y-0">
       <div className="grid grid-cols-2 gap-6">
         {[
           {
