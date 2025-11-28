@@ -37,8 +37,8 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
     null
   );
   const [currentProgress, setCurrentProgress] = React.useState(0);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [isOffline, setIsOffline] = React.useState(!navigator.onLine);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isOffline, setIsOffline] = React.useState(false);
 
   const formatTime = React.useCallback((ms: number): string => {
     const totalSeconds = Math.floor(ms / 1000);
@@ -62,8 +62,8 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
   const fetchTrack = React.useCallback(async () => {
     if (!enabled) return;
 
-    // Check internet connectivity
-    if (!navigator.onLine) {
+    // Check internet connectivity (client-side only)
+    if (typeof window !== 'undefined' && !navigator.onLine) {
       console.log("No internet connection available");
       setIsOffline(true);
       setIsLoading(false);
@@ -122,6 +122,24 @@ export function useSpotify(options: UseSpotifyOptions = {}): UseSpotifyReturn {
       setIsLoading(false);
     }
   }, [enabled]);
+
+  // Check online status after mount (client-side only)
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsOffline(!navigator.onLine);
+      
+      const handleOnline = () => setIsOffline(false);
+      const handleOffline = () => setIsOffline(true);
+      
+      window.addEventListener('online', handleOnline);
+      window.addEventListener('offline', handleOffline);
+      
+      return () => {
+        window.removeEventListener('online', handleOnline);
+        window.removeEventListener('offline', handleOffline);
+      };
+    }
+  }, []);
 
   React.useEffect(() => {
     if (!enabled) return;
