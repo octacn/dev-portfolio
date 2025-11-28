@@ -42,9 +42,9 @@ export default function SpotifyActivity() {
   if (!trackData && !lastPlayed) {
     return (
       <section className="bg-surface w-full rounded-2xl border p-4 flex gap-x-4">
-        <div className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center">
-          <span className="text-4xl">🎵</span>
-        </div>
+        <span className="h-20 min-w-20 rounded-lg overflow-hidden bg-muted border border-surface-foreground/20 btn-inner-shadow flex items-center justify-center text-4xl">
+          🎵
+        </span>
         <div className="w-full flex flex-col justify-center">
           <p className="text-foreground/70 text-sm">No recent activity</p>
           <p className="text-xs text-muted-foreground">

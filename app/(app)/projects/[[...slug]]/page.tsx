@@ -16,10 +16,6 @@ import ProjectPage from "@/components/_components/project-page";
 import { generatePageMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
 
-export const revalidate = false;
-export const dynamic = "force-static";
-export const dynamicParams = false;
-
 export async function generateMetadata({
   params,
 }: {
